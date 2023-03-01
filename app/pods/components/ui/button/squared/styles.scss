@@ -1,0 +1,93 @@
+.bde__ui-button-squared {
+  position: relative;
+  width: 10em;
+  height: 2em;
+  margin-top: 0.5em;
+  overflow: hidden;
+  border: 1px solid #fff;
+  font-weight: 300;
+  // transition: 0.5s;
+  letter-spacing: 1px;
+  border-radius: 0px;
+  background-color: white;
+  text-transform: uppercase;
+}
+
+.bde__ui-button-squared.expanded {
+  position: relative;
+  width: 10em;
+  min-height: 2em;
+  height: auto;
+  margin-top: 0.5em;
+  overflow: hidden;
+  border: 1px solid #fff;
+  font-weight: 300;
+  // transition: 0.5s;
+  letter-spacing: 1px;
+  border-radius: 0px;
+  background-color: white;
+  text-transform: uppercase;
+}
+
+.bde__ui-button-squared button {
+  width: 101%;
+  height: 100%;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  background: #00000d;
+  -webkit-mask: url("/images/urban-sprite.png");
+  mask: url("/images/urban-sprite.png");
+  -webkit-mask-size: 3000% 100%;
+  mask-size: 3000% 100%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(29) forwards;
+  animation: ani2 0.7s steps(29) forwards;
+  text-transform: uppercase;
+  position: absolute;
+  height: 3em;
+}
+
+.bde__ui-button-squared button:hover {
+  -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
+}
+
+.bde__ui-button-squared__mask {
+  position: absolute;
+  color: #00000d;
+  text-align: center;
+  width: 101%;
+  font-weight: 300;
+  position: absolute;
+  font-size: 11px;
+
+  overflow: hidden;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 3em;
+}
+
+.bde-theme-light .bde__ui-button-squared {
+  border: 1px solid #00000d;
+  background-color: #00000d;
+}
+
+.bde-theme-light .bde__ui-button-squared button {
+  background: #fff;
+  color: #00000d;
+}
+
+.bde-theme-light .bde__ui-button-squared__mask {
+  color: #fff;
+}
+
+.bde__ui-button-squared__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
