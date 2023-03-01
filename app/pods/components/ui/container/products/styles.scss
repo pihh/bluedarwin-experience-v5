@@ -14,6 +14,7 @@
 .bde__ui-container-footer .bde__ui-button-rounded {
   transition: all 0.4s ease-in-out;
 }
+
 .bde__ui-container-footer.opacity-0 .bde__ui-button-rounded {
   opacity: 0;
 }
@@ -43,4 +44,8 @@
 
 .bde__ui-container-footer__actions {
   //   display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
 }

@@ -12,7 +12,13 @@
   background: black;
   color: white;
 }
+.bde__ui-splash.opacity-0 {
+  opacity: 0;
+}
 
+.bde__ui-splash.scale-90 {
+  transform: scale(0.95);
+}
 .bde__ui-splash__loader {
   display: flex;
   justify-content: center;
