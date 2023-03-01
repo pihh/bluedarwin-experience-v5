@@ -1,0 +1,64 @@
+#bde-route-background__buttons {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * NORMAL THEME
+ * 
+ */
+#bde-route-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: -1;
+}
+#bde-route-background #bde-route-background-mask {
+  background: transparent;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bde-theme-light #bde-route-background {
+  background-color: white;
+}
+.bde-theme-light #bde-route-background #bde-route-background-mask.transition {
+  background: black;
+  -webkit-mask: url("/images/urban-sprite.png");
+  -webkit-mask-size: 3000% 100%;
+  mask: url("/images/urban-sprite.png");
+  mask-size: 3000% 100%;
+}
+
+/**
+   * DARK THEME
+   * 
+   */
+.bde-theme-dark #bde-route-background {
+  background-color: black;
+}
+
+.bde-theme-dark #bde-route-background #bde-route-background-mask.transition {
+  background: white;
+  -webkit-mask: url("/images/urban-sprite-dark-reverse.png");
+  -webkit-mask-size: 3000% 100%;
+  mask: url("/images/urban-sprite-dark-reverse.png");
+  mask-size: 3000% 100%;
+}
+
+#bde-route-background #bde-route-background-mask.transition-forward {
+  -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
+}
+
+#bde-route-background #bde-route-background-mask.transition-backward {
+  -webkit-animation: ani2 0.7s steps(29) backwards;
+  animation: ani2 0.7s steps(29) backwards;
+}

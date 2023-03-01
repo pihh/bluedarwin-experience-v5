@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'bluedarwin-experience-v5',
+    podModulePrefix: 'bluedarwin-experience-v5/pods',
     environment,
     rootURL: '/',
     locationType: 'history',

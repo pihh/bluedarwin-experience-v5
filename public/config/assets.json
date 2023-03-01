@@ -1,0 +1,92 @@
+[
+  {
+    "name": "chatbot",
+    "type": "glbModel",
+    "path": "/models/base-card.glb"
+  },
+  {
+    "name": "stream",
+    "type": "glbModel",
+    "path": "/models/base-stream.glb"
+  },
+  {
+    "name": "documentInteligence",
+    "type": "glbModel",
+    "path": "/models/cube.glb"
+  },
+  {
+    "name": "scrollSprite",
+    "type": "configJSON",
+    "path": "/config/scroll-sprite.json"
+  },
+  {
+    "name": "acts",
+    "type": "configJSON",
+    "path": "/config/acts.json"
+  },
+  {
+    "name": "particleTexture",
+    "type": "imageTexture",
+    "path": "/images/star.png"
+  },
+  {
+    "name": "explosionTexture",
+    "type": "imageTexture",
+    "path": "/images/explosion.png"
+  },
+  {
+    "name": "messTexture",
+    "type": "imageTexture",
+    "path": "/images/mess.png"
+  },
+  {
+    "name": "particleMask",
+    "type": "imageTexture",
+    "path": "/images/particle-mask.jpg"
+  },
+  {
+    "name": "scrollImage0",
+    "type": "imageTexture",
+    "path": "/images/city-0.jpg"
+  },
+  {
+    "name": "scrollImage1",
+    "type": "imageTexture",
+    "path": "/images/city-1.jpg"
+  },
+  {
+    "name": "scrollImage2",
+    "type": "imageTexture",
+    "path": "/images/city-2.jpg"
+  },
+  {
+    "name": "scrollImage3",
+    "type": "imageTexture",
+    "path": "/images/city-3.jpg"
+  },
+  {
+    "name": "teamMasterImage",
+    "type": "imageTexture",
+    "path": "/images/team-master.jpg"
+  },
+  {
+    "name": "streamVideo1",
+    "type": "videoTexture",
+    "path": "/videos/particles.mp4"
+  },
+  {
+    "name": "streamVideo2",
+    "type": "videoTexture",
+    "path": "/videos/sintel.mp4"
+  },
+  {
+    "name": "chatbotVideo1",
+    "type": "videoTexture",
+    "path": "/videos/particles.mp4"
+  },
+  {
+    "name": "chatbotVideo2",
+    "type": "videoTexture",
+    "path": "/videos/sintel.mp4"
+  }
+]

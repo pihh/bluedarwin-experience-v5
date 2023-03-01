@@ -1,0 +1,116 @@
+{
+  "journey": {
+    "route": "journey",
+    "theme": "dark",
+    "routeLevel": 0,
+    "elements": ["ui-scroll", "ui-product-container"],
+    "objects": [{ "name": "galaxy", "position": [], "rotation": [] }],
+    "links": [],
+    "scene": {
+      "camera": {
+        "position": [0, 0, 6]
+      }
+    }
+  },
+  "team": {
+    "route": "team",
+    "theme": "dark",
+    "routeLevel": 0,
+    "elements": ["ui-scroll", "ui-team-container"],
+    "objects": [],
+    "links": [],
+    "scene": {
+      "camera": {
+        "position": [0, 0, 6]
+      }
+    }
+  },
+  "products.chatbot": {
+    "route": "products.chatbot",
+    "theme": "light",
+    "routeLevel": 1,
+    "objects": [{ "name": "chatbot", "position": [], "rotation": [] }],
+    "elements": [
+      "ui-scroll",
+      "ui-product-container",
+      "ui-navigation-container"
+    ],
+    "links": [
+      {
+        "name": "go back",
+        "route": "journey"
+      },
+      {
+        "name": "docs",
+        "route": "documentation.chatbot"
+      }
+    ],
+    "scene": {
+      "camera": {
+        "position": [0, 0, 6]
+      }
+    }
+  },
+  "products.streams": {
+    "route": "products.streams",
+    "theme": "light",
+    "routeLevel": 1,
+    "objects": [{ "name": "streams", "position": [], "rotation": [] }],
+    "elements": [
+      "ui-scroll",
+      "ui-product-container",
+      "ui-navigation-container"
+    ],
+    "links": [
+      {
+        "name": "go back",
+        "route": "journey"
+      },
+      {
+        "name": "docs",
+        "route": "documentation.streams"
+      }
+    ],
+    "scene": {
+      "camera": {
+        "position": [0, 0, 6]
+      }
+    }
+  },
+  "documentation.chatbot": {
+    "route": "documentation.chatbot",
+    "theme": "blue",
+    "routeLevel": 2,
+    "elements": ["ui-navigation-container"],
+    "objects": [],
+    "links": [
+      {
+        "name": "go back",
+        "route": "products.chatbot"
+      }
+    ],
+    "scene": {
+      "camera": {
+        "position": []
+      }
+    }
+  },
+  "documentation.streams": {
+    "route": "documentation.streams",
+    "theme": "blue",
+    "routeLevel": 2,
+    "objects": [],
+    "elements": ["ui-navigation-container"],
+    "links": [
+      {
+        "name": "go back",
+        "route": "products.streams"
+      }
+    ],
+    "scene": {
+      "camera": {
+        "position": []
+      }
+    }
+  }
+}
