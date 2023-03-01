@@ -1,0 +1,33 @@
+.bde__ui-container-navigation.transition-0 .bde__ui-button-squared {
+  transition: all 0s;
+  transition-delay: 0s;
+}
+.bde__ui-container-navigation .bde__ui-button-squared {
+  transition: all 0.4s ease-in-out;
+}
+.bde__ui-container-navigation.opacity-0 .bde__ui-button-squared {
+  opacity: 0;
+}
+.bde__ui-container-navigation.opacity-100 .bde__ui-button-squared {
+  opacity: 1;
+}
+
+.bde__ui-container-navigation.max-height-0 .bde__ui-button-squared {
+  max-height: 0;
+}
+.bde__ui-container-navigation.max-height-100 .bde__ui-button-squared {
+  max-height: 1000px;
+}
+
+.bde__ui-container-navigation.left-0 .bde__ui-button-squared {
+  transform: translateX(0);
+}
+.bde__ui-container-navigation.left-200 .bde__ui-button-squared {
+  transform: translateX(200px);
+}
+
+@for $i from 1 through 100 {
+  .bde__ui-container-navigation .bde__ui-button-squared:nth-child(#{$i}n) {
+    transition-delay: #{$i * 0.075}s;
+  }
+}
