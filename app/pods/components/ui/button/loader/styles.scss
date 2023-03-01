@@ -1,12 +1,12 @@
-$bde-ui-button-width: 120px;
-$bde-ui-button-size: 75px;
-$bde-ui-button-size-hover-size-1: 65px;
-$bde-ui-button-size-hover-size-2: 55px;
+$bde-ui-button-width: 240px;
+$bde-ui-button-size: 150px;
+$bde-ui-button-size-hover-size-1: 130px;
+$bde-ui-button-size-hover-size-2: 110px;
 $bde-ui-button-size-hover-opacity-1: 0.75;
 $bde-ui-button-size-hover-opacity-2: 0.5;
 $bde-ui-button-size-duration: 250ms;
 
-.bde__ui-button-rounded {
+.bde__ui-button-loader {
   color: white;
   width: $bde-ui-button-width;
   text-align: center;
@@ -15,13 +15,13 @@ $bde-ui-button-size-duration: 250ms;
   justify-content: center;
   align-items: center;
 }
-.bde__ui-button-rounded__circle-wrapper {
+.bde__ui-button-loader__circle-wrapper {
   height: $bde-ui-button-size;
   width: $bde-ui-button-size;
   position: relative;
   cursor: pointer;
 }
-.bde__ui-button-rounded__circle-container {
+.bde__ui-button-loader__circle-container {
   position: absolute;
   height: $bde-ui-button-size;
   width: $bde-ui-button-size;
@@ -31,7 +31,7 @@ $bde-ui-button-size-duration: 250ms;
   justify-content: center;
   align-items: center;
 }
-.bde__ui-button-rounded__circle {
+.bde__ui-button-loader__circle {
   border-radius: 100%;
   border: 1px solid red;
   height: $bde-ui-button-size;
@@ -43,9 +43,9 @@ $bde-ui-button-size-duration: 250ms;
   color: white;
 }
 
-.bde__ui-button-rounded__circle-wrapper
+.bde__ui-button-loader__circle-wrapper
   > div:nth-child(4)
-  .bde__ui-button-rounded__circle {
+  .bde__ui-button-loader__circle {
   border: transparent;
   max-width: $bde-ui-button-size-hover-size-2;
   max-height: $bde-ui-button-size-hover-size-2;
@@ -54,23 +54,29 @@ $bde-ui-button-size-duration: 250ms;
   justify-content: center;
 }
 
-.bde__ui-button-rounder__title {
+.bde__ui-button-loader__title {
   margin-top: 0.5em;
   text-align: center;
   text-transform: uppercase;
+  display: flex;
 }
 
-.bde__ui-button-rounded__circle-wrapper:hover
+.bde__ui-button-loader__circle-wrapper.loaded:hover
   > div:nth-child(1)
-  .bde__ui-button-rounded__circle {
+  .bde__ui-button-loader__circle {
   max-height: $bde-ui-button-size-hover-size-1;
   max-width: $bde-ui-button-size-hover-size-1;
   opacity: $bde-ui-button-size-hover-opacity-1;
 }
-.bde__ui-button-rounded__circle-wrapper:hover
+.bde__ui-button-loader__circle-wrapper.loaded:hover
   > div:nth-child(2)
-  .bde__ui-button-rounded__circle {
+  .bde__ui-button-loader__circle {
   max-height: $bde-ui-button-size-hover-size-2;
   max-width: $bde-ui-button-size-hover-size-2;
   opacity: $bde-ui-button-size-hover-opacity-2;
+}
+
+.bde__ui-button-loader__title__dots {
+  width: 0px !important;
+  text-align: left;
 }

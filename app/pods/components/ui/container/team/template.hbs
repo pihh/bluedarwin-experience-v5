@@ -1,1 +1,6 @@
-{{yield}}
+<div class="bde__ui-container-footer {{this.className}}">
+  {{#each this.buttons as |button|}}
+    <Ui::Button::Rounded />
+
+  {{/each}}
+</div>

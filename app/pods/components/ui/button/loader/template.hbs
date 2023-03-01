@@ -1,0 +1,27 @@
+<div class="bde__ui-button-loader">
+  <div
+    class="bde__ui-button-loader__circle-wrapper {{if this.loaded 'loaded' ''}}"
+  >
+
+    <div class="bde__ui-button-loader__circle-container">
+      <div class="bde__ui-button-loader__circle"></div>
+    </div>
+    <div class="bde__ui-button-loader__circle-container">
+      <div class="bde__ui-button-loader__circle"></div>
+    </div>
+    <div class="bde__ui-button-loader__circle-container">
+      <div class="bde__ui-button-loader__circle"></div>
+    </div>
+    <div class="bde__ui-button-loader__circle-container">
+      <div class="bde__ui-button-loader__circle">
+        <h1>
+
+          {{this.progress}}%
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="bde__ui-button-loader__title">
+    Loading<div class="bde__ui-button-loader__title__dots">{{this.dots}}</div>
+  </div>
+</div>
