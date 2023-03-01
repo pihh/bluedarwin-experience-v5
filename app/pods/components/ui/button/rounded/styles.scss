@@ -7,13 +7,13 @@ $bde-ui-button-size-hover-opacity-2: 0.5;
 $bde-ui-button-size-duration: 250ms;
 
 .bde__ui-button-rounded {
-  color: white;
   width: $bde-ui-button-width;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 0.75em;
 }
 .bde__ui-button-rounded__circle-wrapper {
   height: $bde-ui-button-size;
@@ -33,14 +33,13 @@ $bde-ui-button-size-duration: 250ms;
 }
 .bde__ui-button-rounded__circle {
   border-radius: 100%;
-  border: 1px solid red;
+  border: 1px solid #5858f4;
   height: $bde-ui-button-size;
   width: $bde-ui-button-size;
   max-height: $bde-ui-button-size;
   max-width: $bde-ui-button-size;
   opacity: 1;
   transition: all $bde-ui-button-size-duration ease-in-out;
-  color: white;
 }
 
 .bde__ui-button-rounded__circle-wrapper
@@ -59,6 +58,11 @@ $bde-ui-button-size-duration: 250ms;
   text-align: center;
   text-transform: uppercase;
 }
+.bde__ui-button-rounded__circle-wrapper
+  > div:nth-child(0)
+  .bde__ui-button-rounded__circle {
+  border: 2px solid #5858f4 !important;
+}
 
 .bde__ui-button-rounded__circle-wrapper:hover
   > div:nth-child(1)
@@ -73,4 +77,14 @@ $bde-ui-button-size-duration: 250ms;
   max-height: $bde-ui-button-size-hover-size-2;
   max-width: $bde-ui-button-size-hover-size-2;
   opacity: $bde-ui-button-size-hover-opacity-2;
+}
+
+.bde-theme-light
+  .bde__ui-button-rounded__circle-wrapper
+  > div:nth-child(0)
+  .bde__ui-button-rounded__circle {
+  border: 2px solid red !important;
+}
+.bde-theme-light .bde__ui-button-rounded__circle {
+  border: 1px solid red;
 }

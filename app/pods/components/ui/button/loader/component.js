@@ -1,9 +1,13 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+import wait from '../../../../../utils/wait';
+
 export default class UiButtonLoaderComponent extends Component {
   @tracked dots = '.';
   @tracked progress = 0;
   @tracked loaded = false;
+  @tracked exiting = false;
 
   constructor() {
     super(...arguments);
@@ -26,5 +30,11 @@ export default class UiButtonLoaderComponent extends Component {
       }
     };
     timeout();
+  }
+
+  @action async onExit() {
+    if (this.exiting) return;
+    this.exiting = true;
+    this.args.onExit();
   }
 }

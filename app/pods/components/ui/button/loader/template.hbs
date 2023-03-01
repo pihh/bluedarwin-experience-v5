@@ -1,6 +1,9 @@
 <div class="bde__ui-button-loader">
   <div
-    class="bde__ui-button-loader__circle-wrapper {{if this.loaded 'loaded' ''}}"
+    class="bde__ui-button-loader__circle-wrapper
+      {{if this.loaded 'loaded' ''}}
+      {{this.className}}"
+    {{action this.onExit}}
   >
 
     <div class="bde__ui-button-loader__circle-container">
