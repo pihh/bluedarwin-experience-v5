@@ -1,6 +1,6 @@
 <div class="bde__ui-container-navigation {{this.className}}">
   {{#each this.buttons as |button|}}
-    <Ui::Button::Squared />
+    <Ui::Button::Squared @title={{button.title}} />
 
   {{/each}}
 </div>

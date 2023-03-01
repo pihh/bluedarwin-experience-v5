@@ -6,7 +6,11 @@ import wait from '../../../../../utils/wait';
 export default class UiContainerNavigationComponent extends Component {
   @tracked className = 'opacity-100 left-0 max-height-100';
   @tracked locked = false;
-  @tracked buttons = [1, 2, 3, 4];
+  @tracked buttons = [
+    { title: 'products' },
+    { title: 'team' },
+    { title: 'contact' },
+  ];
 
   @action async enterNavigation() {
     if (this.locked) return;
