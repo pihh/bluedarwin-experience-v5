@@ -31,3 +31,7 @@
     transition-delay: #{$i * 0.075}s;
   }
 }
+
+.bde__ui-container-navigation__actions {
+  display: none;
+}
