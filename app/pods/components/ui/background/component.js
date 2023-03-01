@@ -9,10 +9,10 @@ export default class UiBackgroundComponent extends Component {
     document.getElementById('bde-main').classList.remove('bde-theme-dark');
     document.getElementById('bde-main').classList.add('bde-theme-light');
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.add('transition');
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.add('transition-backward');
 
     await wait(700);
@@ -20,10 +20,10 @@ export default class UiBackgroundComponent extends Component {
     document.getElementById('bde-main').classList.remove('bde-theme-light');
 
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.remove('transition');
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.remove('transition-backward');
   }
   @action async darkToLight() {
@@ -31,19 +31,19 @@ export default class UiBackgroundComponent extends Component {
     document.getElementById('bde-main').classList.remove('bde-theme-light');
     document.getElementById('bde-main').classList.add('bde-theme-dark');
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.add('transition');
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.add('transition-forward');
     await wait(700);
     document.getElementById('bde-main').classList.remove('bde-theme-dark');
     document.getElementById('bde-main').classList.add('bde-theme-light');
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.remove('transition');
     document
-      .getElementById('bde-route-background-mask')
+      .getElementById('bde__ui__background__mask')
       .classList.remove('transition-forward');
   }
 }

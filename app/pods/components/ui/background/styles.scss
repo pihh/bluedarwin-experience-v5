@@ -1,4 +1,4 @@
-#bde-route-background__buttons {
+#bde__ui__background__buttons {
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -11,7 +11,7 @@
  * NORMAL THEME
  * 
  */
-#bde-route-background {
+#bde__ui__background {
   position: fixed;
   top: 0;
   left: 0;
@@ -20,16 +20,16 @@
 
   z-index: -1;
 }
-#bde-route-background #bde-route-background-mask {
+#bde__ui__background #bde__ui__background__mask {
   background: transparent;
   width: 100vw;
   height: 100vh;
 }
 
-.bde-theme-light #bde-route-background {
+.bde-theme-light #bde__ui__background {
   background-color: white;
 }
-.bde-theme-light #bde-route-background #bde-route-background-mask.transition {
+.bde-theme-light #bde__ui__background #bde__ui__background__mask.transition {
   background: black;
   -webkit-mask: url("/images/urban-sprite.png");
   -webkit-mask-size: 3000% 100%;
@@ -41,11 +41,11 @@
    * DARK THEME
    * 
    */
-.bde-theme-dark #bde-route-background {
+.bde-theme-dark #bde__ui__background {
   background-color: black;
 }
 
-.bde-theme-dark #bde-route-background #bde-route-background-mask.transition {
+.bde-theme-dark #bde__ui__background #bde__ui__background__mask.transition {
   background: white;
   -webkit-mask: url("/images/urban-sprite-dark-reverse.png");
   -webkit-mask-size: 3000% 100%;
@@ -53,12 +53,12 @@
   mask-size: 3000% 100%;
 }
 
-#bde-route-background #bde-route-background-mask.transition-forward {
+#bde__ui__background #bde__ui__background__mask.transition-forward {
   -webkit-animation: ani 0.7s steps(29) forwards;
   animation: ani 0.7s steps(29) forwards;
 }
 
-#bde-route-background #bde-route-background-mask.transition-backward {
+#bde__ui__background #bde__ui__background__mask.transition-backward {
   -webkit-animation: ani2 0.7s steps(29) backwards;
   animation: ani2 0.7s steps(29) backwards;
 }
