@@ -1,10 +1,8 @@
-<div id="bde__ui__background__buttons">
-
-  <button type="button" {{action this.lightToDark}}>From light to dark</button>
-  <button type="button" {{action this.darkToLight}}>From dark to light</button>
-</div>
 <section id="bde__ui__background">
-  <div id="bde__ui__background__mask">
+  <div
+    id="bde__ui__background__mask"
+    class="{{this.background.$maskClassList}}"
+  >
 
   </div>
 </section>

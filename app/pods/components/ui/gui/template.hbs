@@ -1,0 +1,25 @@
+<section class="bde-ui-gui">
+  <button type="button" {{action this.darkToLight}}>
+    Background:: Dark to light
+  </button>
+  <button type="button" {{action this.lightToDark}}>
+    Background:: Light to dark
+  </button>
+  <button type="button" {{action this.enterNavigation}}>NavigationContainer::
+    Show</button>
+  <button type="button" {{action this.leaveNavigation}}>NavigationContainer::
+    Hide
+  </button>
+  <button type="button">ProductsContainer:: Show</button>
+  <button type="button">ProductsContainer:: Hide </button>
+  <button type="button">TeamContainer:: Show</button>
+  <button type="button">TeamContainer:: Hide </button>
+  <button type="button">ScrollContainer:: Show</button>
+  <button type="button">ScrollContainer:: Hide </button>
+  <br />
+  <LinkTo @route="journey"><button type="button">Journey</button></LinkTo>
+  <LinkTo @route="team.carlos-galveias"><button type="button">Team:: Carlos</button></LinkTo>
+  <LinkTo @route="products.chatbot"><button type="button">Products:: Chatbot</button></LinkTo>
+  <LinkTo @route="documentation.chatbot"><button type="button">Documentation::
+      Chatbot</button></LinkTo>
+</section>
