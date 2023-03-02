@@ -31,12 +31,19 @@
 
     {{content-for "head-footer"}}
   </head>
-  <body>
+  <body style="display: none">
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/bluedarwin-experience-v5.js"></script>
 
     {{content-for "body-footer"}}
+    <script>
+      (function () {
+        setTimeout(() => {
+          document.body.style.display = "inherit";
+        }, 1);
+      })();
+    </script>
   </body>
 </html>
