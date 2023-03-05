@@ -91,3 +91,52 @@
   align-items: center;
   justify-content: center;
 }
+
+.bde-theme-dark .bde__ui-button-squared__inner__contacts-container {
+  background-color: black;
+  border: 1px solid #fff;
+}
+
+.bde-theme-light .bde__ui-button-squared__inner__contacts-container,
+.bde-theme-blue .bde__ui-button-squared__inner__contacts-container {
+  background-color: white;
+  border: 1px solid black;
+}
+.bde__ui-button-squared__inner__contacts-container {
+  transition: 400ms all ease-in-out;
+  position: relative;
+  width: 10em;
+  height: 5em;
+  overflow: hidden;
+  font-weight: 300;
+  letter-spacing: 1px;
+  border-radius: 0px;
+  /* text-transform: uppercase; */
+  display: flex;
+  align-items: center;
+  border-top: 0px solid transparent !important;
+  overflow: hidden;
+}
+
+.bde__ui-button-squared__inner__contacts-container > span {
+  font-size: small;
+  padding: 0.25em 0.5em;
+  padding-bottom: 0.25em;
+}
+
+.bde__ui-button-squared__inner__contacts-container.max-height-100 {
+  max-height: 100vh;
+}
+.bde__ui-button-squared__inner__contacts-container.opacity-100 {
+  opacity: 1;
+}
+
+.bde__ui-container-navigation.opacity-0
+  .bde__ui-button-squared__inner__contacts-container,
+.bde__ui-button-squared__inner__contacts-container.max-height-0 {
+  max-height: 0;
+  border: 0px solid transparent;
+}
+.bde__ui-button-squared__inner__contacts-container.opacity-0 {
+  opacity: 0;
+}

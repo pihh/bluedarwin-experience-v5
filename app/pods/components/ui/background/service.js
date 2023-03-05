@@ -44,4 +44,8 @@ export default class ComponentsUiBackgroundService extends Service {
 
     this._unlock();
   }
+
+  setTheme(theme) {
+    this.$mainClassList = 'bde-theme-' + theme;
+  }
 }

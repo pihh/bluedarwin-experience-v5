@@ -1,4 +1,4 @@
-<div class="bde__ui-button-squared" ...attributes>
+<div class="bde__ui-button-squared" ...attributes {{action this.onClick}}>
   <span class="bde__ui-button-squared__mask">
     <div class="bde__ui-button-squared__inner">
       {{@title}}
@@ -10,4 +10,13 @@
     </div>
     {{yield}}
   </button>
+
+</div>
+<div
+  class="bde__ui-button-squared__inner__contacts-container
+    {{if this.isContactsOpen 'max-height-100' 'max-height-0'}}"
+>
+  <span>
+    Contacte-nos a partir do email xxx@bluedarwin.com
+  </span>
 </div>

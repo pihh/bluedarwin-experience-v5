@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { service } from '@ember/service';
+import { CONFIG } from './config';
 /**
  * Processo de transição:
  * 1 - Sai menu e navs
@@ -9,34 +10,7 @@ import { service } from '@ember/service';
  * 5 - Entra experience
  * 6 - Entra menu e navs
  */
-const CONFIG = {
-  journey: {
-    level: 0,
-    sublevel: 0,
-    background: 'dark',
-    containers: {
-      products: false,
-      team: false,
-      scroll: false,
-    },
-    navigationButtons: [
-      { title: 'products' },
-      { title: 'team' },
-      { title: 'contact' },
-    ],
-  },
-  'products.chatbot': {
-    level: 1,
-    sublevel: 0,
-    background: 'light',
-    containers: {
-      products: true,
-      team: false,
-      scroll: false,
-    },
-    navigationButtons: [{ title: 'back' }, { title: 'contact' }],
-  },
-};
+
 export default class TransitionService extends Service {
   @service('components/ui/container') container;
   @service('components/ui/background') background;
@@ -65,6 +39,7 @@ export default class TransitionService extends Service {
 
     if (!from) {
       // First load
+      this.firstTransition(CONFIG[to]);
     } else {
       const fromLevel = CONFIG[from].level;
       const toLevel = CONFIG[to].level;
@@ -74,13 +49,13 @@ export default class TransitionService extends Service {
       if (fromLevel == toLevel) {
         // Same level transition
         if (fromSubLevel > toSubLevel) {
-          await this.sameLevelLTR(CONFIG[to]);
+          await this.sameLevelLTR(CONFIG[to], CONFIG[from]);
         } else {
-          await this.sameLevelRTL(CONFIG[to]);
+          await this.sameLevelRTL(CONFIG[to], CONFIG[from]);
         }
       } else {
         // Next level transition
-        if (fromLevel > toLevel) {
+        if (fromLevel < toLevel) {
           await this.nextLevelRTL(CONFIG[to]);
         } else {
           await this.nextLevelLTR(CONFIG[to]);
@@ -90,17 +65,13 @@ export default class TransitionService extends Service {
   }
 
   async __closeContainers(config) {
-    console.log('cc', config);
     if (!config.containers.scroll) {
-      console.log('leave scroll');
       await this.container.leaveScroll();
     }
     if (!config.containers.products) {
-      console.log('leave products');
       await this.container.leaveProducts();
     }
     if (!config.containers.team) {
-      console.log('leave team');
       await this.container.leaveTeam();
     }
   }
@@ -117,10 +88,34 @@ export default class TransitionService extends Service {
     }
   }
 
-  async firstTransition(config) {}
+  async firstTransition(config) {
+    this.background.setTheme(config.background);
+    await this.__openContainers(config);
+    await this.container.enterNavigation('ltr', config);
+  }
 
-  async sameLevelRTL(config) {}
-  async sameLevelLTR(config) {}
+  async sameLevelRTL(configTo, configFrom) {
+    if (configTo.sublevel != configFrom.sublevel) {
+      await this.container.leaveNavigation('rtl');
+      await this.__closeContainers(configTo);
+
+      await this.__openContainers(configTo);
+      await this.container.enterNavigation('rtl', configTo);
+    } else {
+      alert('@todo');
+    }
+  }
+  async sameLevelLTR(configTo, configFrom) {
+    if (configTo.sublevel != configFrom.sublevel) {
+      await this.container.leaveNavigation('ltr');
+      await this.__closeContainers(configTo);
+
+      await this.__openContainers(configTo);
+      await this.container.enterNavigation('ltr', configTo);
+    } else {
+      alert('@todo');
+    }
+  }
 
   async nextLevelRTL(config) {
     /**
@@ -134,6 +129,7 @@ export default class TransitionService extends Service {
       await this.container.leaveNavigation('rtl');
       await this.__closeContainers(config);
       await this.background.darkToLight();
+      await this.__openContainers(config);
       await this.container.enterNavigation('rtl', config);
     } catch (ex) {
       console.warn(ex);

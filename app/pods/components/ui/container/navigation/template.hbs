@@ -2,13 +2,10 @@
   class="bde__ui-container-navigation {{this.container.$navigationClassList}}"
 >
   {{#each this.container.navigationButtons as |button|}}
-    <Ui::Button::Squared @title={{button.title}} />
+    <Ui::Button::Squared
+      @title={{button.title}}
+      @actionName={{button.action}}
+    />
 
   {{/each}}
-</div>
-<div class="bde__ui-container-navigation__actions">
-  <button type="button" {{action this.enterNavigation}}>Enter Navigation
-    Container</button>
-  <button type="button" {{action this.leaveNavigation}}>Leave Navigation
-    Container</button>
 </div>
