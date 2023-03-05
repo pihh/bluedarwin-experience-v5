@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^2.0.5",
     "@ember/string": "^3.0.1",
     "@ember/test-helpers": "^2.9.3",
     "@glimmer/component": "^1.1.2",
@@ -43,12 +44,14 @@
     "ember-cli-terser": "^4.0.2",
     "ember-data": "~4.9.1",
     "ember-fetch": "^8.1.2",
+    "ember-intl": "^5.7.2",
     "ember-load-initializers": "^2.1.2",
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^6.1.1",
     "ember-resolver": "^10.0.0",
     "ember-source": "~4.10.0",
     "ember-template-lint": "^5.3.1",
+    "ember-truth-helpers": "^3.1.1",
     "ember-welcome-page": "^6.2.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.6.0",
@@ -62,7 +65,11 @@
     "qunit-dom": "^2.0.0",
     "sass": "^1.58.3",
     "tracked-built-ins": "^3.1.0",
-    "webpack": "^5.75.0"
+    "webpack": "^5.75.0",
+    "three": "^0.147.0",
+    "events": "^3.3.0",
+    "gsap": "^3.11.3",
+    "countup.js": "^2.3.2"
   },
   "engines": {
     "node": "14.* || 16.* || >= 18"

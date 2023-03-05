@@ -32,6 +32,13 @@ export default class UiButtonLoaderComponent extends Component {
     timeout();
   }
 
+  onCounterUpdate(progress) {
+    this.progress = progress;
+    if (progress == 100) {
+      this.loaded = true;
+    }
+  }
+
   @action async onExit() {
     if (this.exiting) return;
     this.exiting = true;

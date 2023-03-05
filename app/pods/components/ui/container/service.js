@@ -11,31 +11,31 @@ export default class ComponentsUiContainerService extends Service {
   @tracked teamButtons = [
     {
       title: 'carlos',
-      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+      image: '/images/team.carlos-galveias.jpeg',
     },
     {
       title: 'luis',
-      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+      image: '/images/team.luis-pombo.jpeg',
     },
     {
-      title: 'pihh',
-      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+      title: 'filipe',
+      image: '/images/team.filipe-sa.jpeg',
     },
     {
       title: 'mike',
-      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+      image: '/images/team.miguel-vasques.jpeg',
     },
     {
       title: 'favas',
-      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+      image: '/images/team.ricardo-favas.jpeg',
     },
     {
       title: 'rui',
-      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+      image: '/images/team.rui-carvoeiro.jpeg',
     },
     {
       title: 'perleques',
-      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+      image: '/images/team.ricardo-perleques.jpeg',
     },
   ];
 
