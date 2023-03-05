@@ -1,10 +1,6 @@
-<div class="bde__ui-container-footer {{this.className}}">
-  {{#each this.buttons as |button|}}
+<div class="bde__ui-container-footer {{this.container.$productClassList}}">
+  {{#each this.container.productButtons as |button|}}
     <Ui::Button::Rounded />
 
   {{/each}}
-</div>
-<div class="bde__ui-container-footer__actions">
-  <button type="button" {{action this.enterNavigation}}>Enter Product Container</button>
-  <button type="button" {{action this.leaveNavigation}}>Leave Product Container</button>
 </div>

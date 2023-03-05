@@ -30,6 +30,9 @@
 .bde__ui-container-navigation.left-200 .bde__ui-button-squared {
   transform: translateX(200px);
 }
+.bde__ui-container-navigation.right-200 .bde__ui-button-squared {
+  transform: translateX(-200px);
+}
 
 @for $i from 1 through 100 {
   .bde__ui-container-navigation .bde__ui-button-squared:nth-child(#{$i}n) {

@@ -1,9 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-import { service } from '@ember/service';
 
-import wait from '../../../../../utils/wait';
+import { service } from '@ember/service';
 
 export default class UiContainerNavigationComponent extends Component {
   @service('components/ui/container') container;

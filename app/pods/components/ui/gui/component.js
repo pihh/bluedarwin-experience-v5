@@ -19,4 +19,16 @@ export default class UiGuiComponent extends Component {
   @action async leaveNavigation() {
     await this.container.leaveNavigation();
   }
+  @action async enterProducts() {
+    await this.container.enterProducts();
+  }
+  @action async leaveProducts() {
+    await this.container.leaveProducts();
+  }
+  @action async enterTeam() {
+    await this.container.enterTeam();
+  }
+  @action async leaveTeam() {
+    await this.container.leaveTeam();
+  }
 }

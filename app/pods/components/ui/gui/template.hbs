@@ -5,15 +5,21 @@
   <button type="button" {{action this.lightToDark}}>
     Background:: Light to dark
   </button>
-  <button type="button" {{action this.enterNavigation}}>NavigationContainer::
-    Show</button>
-  <button type="button" {{action this.leaveNavigation}}>NavigationContainer::
-    Hide
+  <button type="button" {{action this.enterNavigation}}>
+    NavigationContainer::Show
   </button>
-  <button type="button">ProductsContainer:: Show</button>
-  <button type="button">ProductsContainer:: Hide </button>
-  <button type="button">TeamContainer:: Show</button>
-  <button type="button">TeamContainer:: Hide </button>
+  <button type="button" {{action this.leaveNavigation}}>
+    NavigationContainer::Hide
+  </button>
+
+  <button type="button" {{action this.enterProducts}}>
+    ProductsContainer:: Show
+  </button>
+  <button type="button" {{action this.leaveProducts}}>
+    ProductsContainer:: Hide
+  </button>
+  <button type="button" {{action this.enterTeam}}>TeamContainer:: Show</button>
+  <button type="button" {{action this.leaveTeam}}>TeamContainer:: Hide </button>
   <button type="button">ScrollContainer:: Show</button>
   <button type="button">ScrollContainer:: Hide </button>
   <br />
