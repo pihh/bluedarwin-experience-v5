@@ -14,6 +14,11 @@ const CONFIG = {
     level: 0,
     sublevel: 0,
     background: 'dark',
+    containers: {
+      products: false,
+      team: false,
+      scroll: false,
+    },
     navigationButtons: [
       { title: 'products' },
       { title: 'team' },
@@ -24,6 +29,11 @@ const CONFIG = {
     level: 1,
     sublevel: 0,
     background: 'light',
+    containers: {
+      products: true,
+      team: false,
+      scroll: false,
+    },
     navigationButtons: [{ title: 'back' }, { title: 'contact' }],
   },
 };
@@ -79,6 +89,36 @@ export default class TransitionService extends Service {
     }
   }
 
+  async __closeContainers(config) {
+    console.log('cc', config);
+    if (!config.containers.scroll) {
+      console.log('leave scroll');
+      await this.container.leaveScroll();
+    }
+    if (!config.containers.products) {
+      console.log('leave products');
+      await this.container.leaveProducts();
+    }
+    if (!config.containers.team) {
+      console.log('leave team');
+      await this.container.leaveTeam();
+    }
+  }
+
+  async __openContainers(config) {
+    if (config.containers.products) {
+      await this.container.enterProducts();
+    }
+    if (config.containers.team) {
+      await this.container.enterTeam();
+    }
+    if (config.containers.scroll) {
+      await this.container.enterScroll();
+    }
+  }
+
+  async firstTransition(config) {}
+
   async sameLevelRTL(config) {}
   async sameLevelLTR(config) {}
 
@@ -90,14 +130,24 @@ export default class TransitionService extends Service {
      * Entra experience
      * Entra buttons
      */
-
-    await this.container.leaveNavigation('rtl');
-    await this.background.darkToLight();
-    await this.container.enterNavigation('rtl', config);
+    try {
+      await this.container.leaveNavigation('rtl');
+      await this.__closeContainers(config);
+      await this.background.darkToLight();
+      await this.container.enterNavigation('rtl', config);
+    } catch (ex) {
+      console.warn(ex);
+    }
   }
   async nextLevelLTR(config) {
-    await this.container.leaveNavigation('ltr');
-    await this.background.lightToDark();
-    await this.container.enterNavigation('ltr', config);
+    try {
+      await this.container.leaveNavigation('ltr');
+      await this.__closeContainers(config);
+      await this.background.lightToDark();
+      await this.__openContainers(config);
+      await this.container.enterNavigation('ltr', config);
+    } catch (ex) {
+      console.warn(ex);
+    }
   }
 }

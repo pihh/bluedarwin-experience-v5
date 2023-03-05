@@ -5,16 +5,21 @@ import wait from '../../../../utils/wait';
 
 export default class ComponentsUiContainerService extends Service {
   // TEAM MENU
-  @tracked $teamClassList = 'opacity-100 bottom-0 max-height-100';
+  @tracked $teamClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
   @tracked teamLocked = false;
+  @tracked teamVisible = false;
   @tracked teamButtons = [
-    { title: 'products' },
-    { title: 'team' },
-    { title: 'contact' },
+    { title: 'carlos' },
+    { title: 'luis' },
+    { title: 'pihh' },
+    { title: 'mike' },
+    { title: 'favas' },
+    { title: 'rui' },
+    { title: 'perleques' },
   ];
 
   async enterTeam() {
-    if (this.teamLocked) return;
+    if (this.teamLocked || this.teamVisible) return;
     this.teamLocked = true;
 
     this.$teamClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
@@ -22,22 +27,26 @@ export default class ComponentsUiContainerService extends Service {
     this.$teamClassList = 'opacity-100 bottom-0 max-height-100';
 
     await wait(this.teamButtons.length * 75 + 400);
+    this.teamVisible = true;
     this.teamLocked = false;
   }
 
   async leaveTeam() {
-    if (this.teamLocked) return;
+    if (this.teamLocked || !this.teamVisible) return;
+
     this.teamLocked = true;
     this.$teamClassList = 'transition-0 opacity-100 bottom-0 max-height-100';
     await wait(1);
     this.$teamClassList = ' opacity-0 bottom-100 max-height-0';
     await wait(this.teamButtons.length * 75 + 400);
+    this.teamVisible = false;
     this.teamLocked = false;
   }
 
   // PRODUCTS MENU
-  @tracked $productClassList = 'opacity-100 bottom-0 max-height-100';
+  @tracked $productClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
   @tracked productLocked = false;
+  @tracked productVisible = false;
   @tracked productButtons = [
     { title: 'products' },
     { title: 'team' },
@@ -45,7 +54,7 @@ export default class ComponentsUiContainerService extends Service {
   ];
 
   async enterProducts() {
-    if (this.productLocked) return;
+    if (this.productLocked || this.productVisible) return;
     this.productLocked = true;
 
     this.$productClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
@@ -53,22 +62,34 @@ export default class ComponentsUiContainerService extends Service {
     this.$productClassList = 'opacity-100 bottom-0 max-height-100';
 
     await wait(this.productButtons.length * 75 + 400);
+    this.productVisible = true;
     this.productLocked = false;
   }
 
   async leaveProducts() {
-    if (this.productLocked) return;
+    if (this.productLocked || !this.productVisible) return;
     this.productLocked = true;
     this.$productClassList = 'transition-0 opacity-100 bottom-0 max-height-100';
     await wait(1);
     this.$productClassList = ' opacity-0 bottom-100 max-height-0';
     await wait(this.productButtons.length * 75 + 400);
+    this.productVisible = false;
     this.productLocked = false;
   }
+
+  // SCROLL MENU
+  @tracked $scrollClassList = 'opacity-100 bottom-0 max-height-100';
+  @tracked scrollLocked = false;
+  @tracked scrollVisible = false;
+
+  async enterScroll() {}
+
+  async leaveScroll() {}
 
   // NAVIGATION MENU
   @tracked $navigationClassList = 'opacity-100 left-0 max-height-100';
   @tracked navigationLocked = false;
+  @tracked navigationVisible = true;
   @tracked navigationButtons = [
     { title: 'products' },
     { title: 'team' },
