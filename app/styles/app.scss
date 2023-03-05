@@ -2,6 +2,9 @@
 @import "./animations.scss";
 @import "app/index.scss";
 
+body {
+  overflow: hidden;
+}
 .bde-theme-dark {
   color: white;
 }
