@@ -9,13 +9,34 @@ export default class ComponentsUiContainerService extends Service {
   @tracked teamLocked = false;
   @tracked teamVisible = false;
   @tracked teamButtons = [
-    { title: 'carlos' },
-    { title: 'luis' },
-    { title: 'pihh' },
-    { title: 'mike' },
-    { title: 'favas' },
-    { title: 'rui' },
-    { title: 'perleques' },
+    {
+      title: 'carlos',
+      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+    },
+    {
+      title: 'luis',
+      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+    },
+    {
+      title: 'pihh',
+      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+    },
+    {
+      title: 'mike',
+      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+    },
+    {
+      title: 'favas',
+      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+    },
+    {
+      title: 'rui',
+      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+    },
+    {
+      title: 'perleques',
+      image: 'https://ca.slack-edge.com/E27SFGS2W-WFY27605B-428f68382e85-512',
+    },
   ];
 
   async enterTeam() {
@@ -48,9 +69,10 @@ export default class ComponentsUiContainerService extends Service {
   @tracked productLocked = false;
   @tracked productVisible = false;
   @tracked productButtons = [
-    { title: 'products' },
-    { title: 'team' },
-    { title: 'contact' },
+    { title: 'chatbot', icon: '/icons/chatbot.svg' },
+    { title: 'doc intell', icon: '/icons/document-intelligence.svg' },
+    { title: 'streams', icon: '/icons/streams.svg' },
+    { title: 'automations', icon: '/icons/automations.svg' },
   ];
 
   async enterProducts() {

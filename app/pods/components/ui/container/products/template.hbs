@@ -1,6 +1,10 @@
 <div class="bde__ui-container-footer {{this.container.$productClassList}}">
   {{#each this.container.productButtons as |button|}}
-    <Ui::Button::Rounded />
-
+    <Ui::Button::Rounded
+      @title={{button.title}}
+      @icon={{button.icon}}
+      @image={{button.image}}
+    />
+    {{button.image}}
   {{/each}}
 </div>

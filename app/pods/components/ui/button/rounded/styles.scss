@@ -88,3 +88,14 @@ $bde-ui-button-size-duration: 250ms;
 .bde-theme-light .bde__ui-button-rounded__circle {
   border: 1px solid red;
 }
+
+.bde__ui-button-rounded__circle > img {
+  width: 6em;
+
+  border-radius: 100%;
+}
+.bde__ui-button-rounded__circle > img.bde__ui-button-rounded__circle__icon {
+  width: 4em;
+
+  border-radius: 100%;
+}
