@@ -78,13 +78,28 @@ export default class ComponentsUiContainerService extends Service {
   }
 
   // SCROLL MENU
-  @tracked $scrollClassList = 'opacity-100 bottom-0 max-height-100';
+  @tracked $scrollClassList = 'opacity-0 zoom-90';
   @tracked scrollLocked = false;
   @tracked scrollVisible = false;
 
-  async enterScroll() {}
+  async enterScrollbar() {
+    if (this.scrollLocked || this.scrollVisible) return;
+    this.scrollLocked = true;
+    this.$scrollClassList = 'opacity-100 zoom-100';
+    await wait(400);
+    this.scrollVisible = true;
+    this.scrollLocked = false;
+  }
 
-  async leaveScroll() {}
+  async leaveScrollbar() {
+    if (this.scrollLocked || !this.scrollVisible) return;
+    this.scrollLocked = true;
+    this.$scrollClassList = 'opacity-0 zoom-90';
+    await wait(400);
+
+    this.scrollVisible = false;
+    this.scrollLocked = false;
+  }
 
   // NAVIGATION MENU
   @tracked $navigationClassList = 'opacity-100 left-0 max-height-100';

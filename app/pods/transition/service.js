@@ -66,7 +66,7 @@ export default class TransitionService extends Service {
 
   async __closeContainers(config) {
     if (!config.containers.scroll) {
-      await this.container.leaveScroll();
+      await this.container.leaveScrollbar();
     }
     if (!config.containers.products) {
       await this.container.leaveProducts();
@@ -84,7 +84,7 @@ export default class TransitionService extends Service {
       await this.container.enterTeam();
     }
     if (config.containers.scroll) {
-      await this.container.enterScroll();
+      await this.container.enterScrollbar();
     }
   }
 

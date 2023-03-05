@@ -1,0 +1,84 @@
+.bde__ui-scrollbar__wrapper {
+  position: fixed;
+  bottom: 10em;
+  z-index: -1;
+  width: 100vw;
+  transition: all 400ms ease-in-out;
+}
+
+.bde__ui-scrollbar__wrapper.opacity-0 {
+  opacity: 0;
+}
+.bde__ui-scrollbar__wrapper.opacity-100 {
+  opacity: 1;
+}
+.bde__ui-scrollbar__wrapper.zoom-90 {
+  transform: scale(0.9);
+}
+.bde__ui-scrollbar__wrapper.zoom-100 {
+  transform: scale(1);
+}
+
+.bde__ui-scrollbar__container {
+  position: relative;
+  height: 8em;
+}
+
+.bde__ui-scrollbar__call-to-action {
+  text-transform: uppercase;
+  font-weight: 100;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.bde__ui-scrollbar__scroll-downs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+
+  width: 34px;
+  height: 55px;
+}
+.bde-theme-dark .bde__ui-scrollbar__mousey {
+  border: 2px solid #fff;
+}
+.bde-theme-dark .bde__ui-scrollbar__scroller {
+  background-color: #fff;
+}
+
+.bde__ui-scrollbar__mousey {
+  width: 3px;
+  padding: 10px 15px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.bde__ui-scrollbar__scroller {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: #ccc;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+}

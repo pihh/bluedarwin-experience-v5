@@ -6,7 +6,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: false,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'products', action: 'goToProducts' },
@@ -52,7 +52,7 @@ export const CONFIG = {
     containers: {
       products: true,
       team: false,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'back', action: 'goToJourney' },
