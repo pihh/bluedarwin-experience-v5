@@ -1,3 +1,9 @@
 import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+export default class ProductsStreamsRoute extends Route {
+  @service transition;
 
-export default class ProductsStreamsRoute extends Route {}
+  async beforeModel(transition) {
+    this.transition.start(transition);
+  }
+}

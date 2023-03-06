@@ -1,3 +1,52 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+export default class UiButtonRoundedComponent extends Component {
+  @service router;
+  @action onClick() {
+    this[this.args.actionName]();
+  }
 
-export default class UiButtonRoundedComponent extends Component {}
+  goToChatbot() {
+    this.router.transitionTo('products.chatbot');
+  }
+  goToStreams() {
+    this.router.transitionTo('products.streams');
+  }
+
+  goToDocIntel() {
+    this.router.transitionTo('products.document-intelligence');
+  }
+
+  goToAutomations() {
+    this.router.transitionTo('products.automations');
+  }
+
+  goToCarlos() {
+    this.router.transitionTo('team.carlos-galveias');
+  }
+
+  goToFilipe() {
+    this.router.transitionTo('team.filipe-sa');
+  }
+
+  goToLuis() {
+    this.router.transitionTo('team.luis-pombo');
+  }
+
+  goToMiguel() {
+    this.router.transitionTo('team.miguel-vasques');
+  }
+
+  goToFavas() {
+    this.router.transitionTo('team.ricardo-favas');
+  }
+
+  goToRui() {
+    this.router.transitionTo('team.rui-carvoeiro');
+  }
+  goToPerleques() {
+    this.router.transitionTo('team.ricardo-perleques');
+  }
+}

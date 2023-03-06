@@ -135,4 +135,9 @@ export default [
     type: 'videoTexture',
     path: '/videos/watson.mp4',
   },
+  {
+    name: 'teamCarlos',
+    type: 'imageTexture',
+    path: '/images/team.carlos-galveias.jpeg',
+  },
 ];

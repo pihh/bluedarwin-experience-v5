@@ -6,4 +6,8 @@ export default class TeamCarlosGalveiasRoute extends Route {
   async beforeModel(transition) {
     this.transition.start(transition);
   }
+
+  setupController(controller) {
+    controller.section = 0;
+  }
 }

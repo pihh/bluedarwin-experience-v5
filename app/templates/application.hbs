@@ -1,6 +1,7 @@
 <main id="bde-main" class="{{this.background.$mainClassList}}">
   <Ui::Background />
   <canvas {{did-insert this.didInsertCanvas}} id="experience-canvas"></canvas>
+  {{outlet}}
   <aside>
     <Ui::Container::Navigation />
     <Ui::Gui />
@@ -16,4 +17,3 @@
   </footer>
 </main>
 <Ui::Splash />
-{{outlet}}

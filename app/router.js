@@ -15,6 +15,10 @@ Router.map(function () {
     this.route('carlos-galveias');
     this.route('luis-pombo');
     this.route('filipe-sa');
+    this.route('miguel-vasques');
+    this.route('ricardo-favas');
+    this.route('rui-carvoeiro');
+    this.route('ricardo-perleques');
   });
 
   this.route('products', function () {

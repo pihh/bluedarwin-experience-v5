@@ -1,0 +1,21 @@
+<div class="bde__ui__vertical-aside">
+  <p class="bde-page-subtitle text-blue text-uppercase">{{@description}}</p>
+  <h1 class="">{{@title}}</h1>
+</div>
+<div class="bde__ui__vertical-aside__counter">
+  <ul>
+
+    {{#each @sections as |section index|}}
+      <li
+        class="{{if (eq @section index) 'active' ''}}"
+        {{action this.onClick index}}
+      >
+        <div>
+          <span></span>
+        </div>
+        {{double-place-number index}}
+      </li>
+    {{/each}}
+
+  </ul>
+</div>

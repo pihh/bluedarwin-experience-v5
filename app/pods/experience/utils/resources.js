@@ -5,7 +5,7 @@ import { EventEmitter } from 'events';
 import { GLTFLoader } from '../loaders/GLTFLoader';
 import { DRACOLoader } from '../loaders/DRACOLoader';
 import { KTX2Loader } from '../loaders/KTX2Loader';
-import { VideoTexture } from 'three';
+import { TextureLoader, VideoTexture } from 'three';
 
 export default class Resources extends EventEmitter {
   constructor(assets) {
@@ -41,6 +41,11 @@ export default class Resources extends EventEmitter {
     this.loaders.ktx2Loader = new KTX2Loader();
     this.loaders.ktx2Loader.setTranscoderPath('/basis/');
     this.loaders.ktx2Loader.detectSupport(this.renderer.renderer);
+
+    this.video = {};
+    this.videoTexture = {};
+
+    this.imageTexture = {};
   }
 
   startLoading() {
@@ -54,9 +59,6 @@ export default class Resources extends EventEmitter {
           this.singleAssetLoaded(asset, file);
         });
       } else if (asset.type === 'videoTexture') {
-        this.video = {};
-        this.videoTexture = {};
-
         this.video[asset.name] = document.createElement('video');
         this.video[asset.name].src = asset.path;
         this.video[asset.name].muted = true;
@@ -75,6 +77,10 @@ export default class Resources extends EventEmitter {
         this.videoTexture[asset.name].encoding = THREE.sRGBEncoding;
 
         this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
+      } else if (asset.type === 'imageTexture') {
+        this.imageTexture[asset.name] = new TextureLoader();
+        this.imageTexture[asset.name].load(asset.path);
+        this.singleAssetLoaded(asset, this.imageTexture[asset.name]);
       }
     }
   }

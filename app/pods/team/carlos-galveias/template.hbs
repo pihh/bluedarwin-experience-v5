@@ -1,2 +1,9 @@
 {{page-title "CarlosGalveias"}}
-{{outlet}}
+
+<Ui::VerticalAside
+  @title="Carlos Galveias"
+  @description="the brain"
+  @sections={{this.sections}}
+  @section={{this.section}}
+  @onClick={{this.onSectionChange}}
+/>

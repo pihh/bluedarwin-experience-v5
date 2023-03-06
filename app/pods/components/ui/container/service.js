@@ -12,30 +12,37 @@ export default class ComponentsUiContainerService extends Service {
     {
       title: 'carlos',
       image: '/images/team.carlos-galveias.jpeg',
+      actionName: 'goToCarlos',
     },
     {
       title: 'luis',
       image: '/images/team.luis-pombo.jpeg',
+      actionName: 'goToLuis',
     },
     {
       title: 'filipe',
       image: '/images/team.filipe-sa.jpeg',
+      actionName: 'goToFilipe',
     },
     {
       title: 'mike',
       image: '/images/team.miguel-vasques.jpeg',
+      actionName: 'goToMiguel',
     },
     {
       title: 'favas',
       image: '/images/team.ricardo-favas.jpeg',
+      actionName: 'goToFavas',
     },
     {
       title: 'rui',
       image: '/images/team.rui-carvoeiro.jpeg',
+      actionName: 'goToRui',
     },
     {
       title: 'perleques',
       image: '/images/team.ricardo-perleques.jpeg',
+      actionName: 'goToRicardo',
     },
   ];
 
@@ -69,10 +76,18 @@ export default class ComponentsUiContainerService extends Service {
   @tracked productLocked = false;
   @tracked productVisible = false;
   @tracked productButtons = [
-    { title: 'chatbot', icon: '/icons/chatbot.svg' },
-    { title: 'doc intell', icon: '/icons/document-intelligence.svg' },
-    { title: 'streams', icon: '/icons/streams.svg' },
-    { title: 'automations', icon: '/icons/automations.svg' },
+    { title: 'chatbot', icon: '/icons/chatbot.svg', actionName: 'goToChatbot' },
+    {
+      title: 'doc intell',
+      icon: '/icons/document-intelligence.svg',
+      actionName: 'goToDocIntel',
+    },
+    { title: 'streams', icon: '/icons/streams.svg', actionName: 'goToStreams' },
+    {
+      title: 'automations',
+      icon: '/icons/automations.svg',
+      actionName: 'goToAutomations',
+    },
   ];
 
   async enterProducts() {
