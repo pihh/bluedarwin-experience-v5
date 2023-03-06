@@ -4,7 +4,7 @@ export const CONFIG = {
     sublevel: 0,
     background: 'dark',
     containers: {
-      products: false,
+      products: true,
       team: false,
       scroll: true,
     },

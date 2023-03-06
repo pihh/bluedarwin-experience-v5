@@ -29,7 +29,7 @@ export default class UiButtonLoaderComponent extends Component {
         this.progress++;
         this.onCounterUpdate(this.progress);
         this.onTargetUpdate();
-      }, 1);
+      }, 2);
     }
   }
 

@@ -18,8 +18,11 @@
     <div class="bde__ui-button-loader__circle-container">
       <div class="bde__ui-button-loader__circle">
         <h1>
-
-          {{this.progress}}%
+          {{#if this.loaded}}
+            GO
+          {{else}}
+            {{this.progress}}%
+          {{/if}}
         </h1>
       </div>
     </div>

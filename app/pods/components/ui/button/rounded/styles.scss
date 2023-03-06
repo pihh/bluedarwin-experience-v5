@@ -33,7 +33,7 @@ $bde-ui-button-size-duration: 250ms;
 }
 .bde__ui-button-rounded__circle {
   border-radius: 100%;
-  border: 1px solid #5858f4;
+  border: 1px solid white;
   height: $bde-ui-button-size;
   width: $bde-ui-button-size;
   max-height: $bde-ui-button-size;
@@ -61,7 +61,7 @@ $bde-ui-button-size-duration: 250ms;
 .bde__ui-button-rounded__circle-wrapper
   > div:nth-child(0)
   .bde__ui-button-rounded__circle {
-  border: 2px solid #5858f4 !important;
+  border: 2px solid white !important;
 }
 
 .bde__ui-button-rounded__circle-wrapper:hover
@@ -83,10 +83,10 @@ $bde-ui-button-size-duration: 250ms;
   .bde__ui-button-rounded__circle-wrapper
   > div:nth-child(0)
   .bde__ui-button-rounded__circle {
-  border: 2px solid red !important;
+  border: 2px solid #ccc !important;
 }
 .bde-theme-light .bde__ui-button-rounded__circle {
-  border: 1px solid red;
+  border: 1px solid #ccc;
 }
 
 .bde__ui-button-rounded__circle > img {
@@ -98,4 +98,31 @@ $bde-ui-button-size-duration: 250ms;
   width: 4em;
 
   border-radius: 100%;
+}
+
+.bde__ui-button-rounded__circle-wrapper:hover .bde__ui-button-rounded__circle,
+.bde__ui-button-loader__circle-wrapper.active .bde__ui-button-rounded__circle {
+  border: 1px solid #5858f4;
+}
+
+.bde__ui-button-rounded__circle-wrapper:hover
+  > div:nth-child(0)
+  .bde__ui-button-rounded__circle {
+  border: 2px solid #5858f4 !important;
+}
+
+.bde-theme-light
+  .bde__ui-button-rounded__circle-wrapper:hover
+  .bde__ui-button-rounded__circle,
+.bde-theme-light
+  .bde__ui-button-loader__circle-wrapper.active
+  .bde__ui-button-rounded__circle {
+  border: 1px solid red;
+}
+
+.bde-theme-light
+  .bde__ui-button-rounded__circle-wrapper:hover
+  > div:nth-child(0)
+  .bde__ui-button-rounded__circle {
+  border: 2px solid red !important;
 }
