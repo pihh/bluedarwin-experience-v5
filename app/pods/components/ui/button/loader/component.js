@@ -1,9 +1,10 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import wait from '../../../../../utils/wait';
+import { service } from '@ember/service';
 
 export default class UiButtonLoaderComponent extends Component {
+  @service experience;
   @tracked dots = '.';
   @tracked progress = 0;
   @tracked loaded = false;
@@ -11,6 +12,33 @@ export default class UiButtonLoaderComponent extends Component {
 
   constructor() {
     super(...arguments);
+  }
+
+  onCounterUpdate(progress) {
+    this.progress = progress;
+    if (progress == 100) {
+      this.loaded = true;
+    }
+  }
+
+  target = 0;
+  onTargetUpdate() {
+    if (this.progress < this.target) {
+      clearTimeout(this.targetUpdateTimeout);
+      this.targetUpdateTimeout = setTimeout(() => {
+        this.progress++;
+        this.onCounterUpdate(this.progress);
+        this.onTargetUpdate();
+      }, 1);
+    }
+  }
+
+  @action didInsert() {
+    this.experience.experience.resources.on('resource-progress', (e) => {
+      this.target = Math.floor(e * 100);
+      this.onTargetUpdate();
+    });
+
     const timeout = () => {
       try {
         setTimeout(() => {
@@ -32,15 +60,8 @@ export default class UiButtonLoaderComponent extends Component {
     timeout();
   }
 
-  onCounterUpdate(progress) {
-    this.progress = progress;
-    if (progress == 100) {
-      this.loaded = true;
-    }
-  }
-
   @action async onExit() {
-    if (this.exiting) return;
+    if (this.exiting || !this.loaded) return;
     this.exiting = true;
     this.args.onExit();
   }

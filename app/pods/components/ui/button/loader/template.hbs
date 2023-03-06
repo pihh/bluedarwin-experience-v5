@@ -1,4 +1,4 @@
-<div class="bde__ui-button-loader">
+<div class="bde__ui-button-loader" {{did-insert this.didInsert}}>
   <div
     class="bde__ui-button-loader__circle-wrapper
       {{if this.loaded 'loaded' ''}}
@@ -25,6 +25,10 @@
     </div>
   </div>
   <div class="bde__ui-button-loader__title">
-    Loading<div class="bde__ui-button-loader__title__dots">{{this.dots}}</div>
+    {{#if this.loaded}}
+      <div class="bde__ui-button-loader__title__dots">&nbsp;</div>
+    {{else}}
+      Loading<div class="bde__ui-button-loader__title__dots">{{this.dots}}</div>
+    {{/if}}
   </div>
 </div>

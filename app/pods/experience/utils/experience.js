@@ -1,9 +1,13 @@
-import EventEmitter from 'events';
 import { Scene } from 'three';
+
+import assets from '../config/assets';
+import EventEmitter from 'events';
 import Camera from './camera';
 import Renderer from './renderer';
 import Sizes from './sizes';
 import Time from './time';
+import Resources from './resources';
+import World from './world';
 
 export default class Experience {
   static instance;
@@ -21,9 +25,9 @@ export default class Experience {
     this.camera = new Camera();
 
     this.renderer = new Renderer();
-    // this.resources = new Resources(assets);
+    this.resources = new Resources(assets);
     // this.acts = acts;
-    // this.world = new World();
+    this.world = new World();
     this.time = new Time();
 
     this.sizes.on('resize', () => {

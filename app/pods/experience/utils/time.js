@@ -28,7 +28,7 @@ export default class Time extends EventEmitter {
 
       const result = average(this.deltas);
       console.log('average delta after 50 raf - ', result);
-      console.log(this.deltas);
+      // console.log(this.deltas);
     }
     // console.log(this.delta);
     window.requestAnimationFrame(() => this.update());

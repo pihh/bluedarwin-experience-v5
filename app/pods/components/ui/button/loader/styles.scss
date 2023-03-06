@@ -31,9 +31,16 @@ $bde-ui-button-size-duration: 250ms;
   justify-content: center;
   align-items: center;
 }
+
+.bde__ui-button-loader__circle-wrapper .bde__ui-button-loader__circle {
+  border: 1px solid white;
+}
+.bde__ui-button-loader__circle-wrapper.loaded .bde__ui-button-loader__circle {
+  border: 1px solid #5858f4;
+}
 .bde__ui-button-loader__circle {
   border-radius: 100%;
-  border: 1px solid #5858f4;
+
   height: $bde-ui-button-size;
   width: $bde-ui-button-size;
   max-height: $bde-ui-button-size;
