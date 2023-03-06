@@ -64,6 +64,17 @@ export default class TransitionService extends Service {
       }
     }
   }
+  __setAsideContainer(config) {
+    console.log({ config });
+    try {
+      this.container.asideSection = 0;
+      this.container.asideSections = [...config.asideMenu.sections];
+      this.container.asideTitle = config.asideMenu.title;
+      this.container.asideSubtitle = config.asideMenu.subtitle;
+    } catch (ex) {
+      console.log(ex);
+    }
+  }
 
   async __closeContainers(config) {
     if (!config.containers.scroll) {
@@ -92,6 +103,7 @@ export default class TransitionService extends Service {
   async firstTransition(config) {
     this.background.setTheme(config.background);
     await this.__openContainers(config);
+    this.__setAsideContainer(config);
     await this.container.enterNavigation('ltr', config);
   }
 
@@ -101,6 +113,7 @@ export default class TransitionService extends Service {
       await this.__closeContainers(configTo);
 
       await this.__openContainers(configTo);
+      this.__setAsideContainer(config);
       await this.container.enterNavigation('rtl', configTo);
     } else {
       alert('@todo');
@@ -112,6 +125,7 @@ export default class TransitionService extends Service {
       await this.__closeContainers(configTo);
 
       await this.__openContainers(configTo);
+      this.__setAsideContainer(configTo);
       await this.container.enterNavigation('ltr', configTo);
     } else {
       alert('@todo');
@@ -131,6 +145,7 @@ export default class TransitionService extends Service {
       await this.__closeContainers(config);
       await this.background.darkToLight();
       await this.__openContainers(config);
+      this.__setAsideContainer(config);
       await this.container.enterNavigation('rtl', config);
     } catch (ex) {
       console.warn(ex);
@@ -142,6 +157,7 @@ export default class TransitionService extends Service {
       await this.__closeContainers(config);
       await this.background.lightToDark();
       await this.__openContainers(config);
+      this.__setAsideContainer(config);
       await this.container.enterNavigation('ltr', config);
     } catch (ex) {
       console.warn(ex);

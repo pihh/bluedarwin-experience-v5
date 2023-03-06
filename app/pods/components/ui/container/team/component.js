@@ -11,4 +11,12 @@ export default class UiContainerTeamComponent extends Component {
   @action async leaveTeam() {
     await this.container.leaveTeam();
   }
+
+  @action goToCarlos() {}
+  @action goToLuis() {}
+  @action goToFilipe() {}
+  @action goToMiguel() {}
+  @action goToFavas() {}
+  @action goToRui() {}
+  @action goToRicardo() {}
 }

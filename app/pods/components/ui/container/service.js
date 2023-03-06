@@ -4,6 +4,12 @@ import { tracked } from '@glimmer/tracking';
 import wait from '../../../../utils/wait';
 
 export default class ComponentsUiContainerService extends Service {
+  // ASIDE MENU
+  @tracked asideTitle = '';
+  @tracked asideSubtitle = '';
+  @tracked asideSections = [0, 1, 2];
+  @tracked asideSection = 0;
+
   // TEAM MENU
   @tracked $teamClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
   @tracked teamLocked = false;

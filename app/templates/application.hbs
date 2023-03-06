@@ -4,6 +4,7 @@
     {{if this.transition.transition 'transitioning' ''}}"
 >
   <Ui::Background />
+  <Ui::Container::Aside />
   <canvas {{did-insert this.didInsertCanvas}} id="experience-canvas"></canvas>
   {{outlet}}
   <aside>
