@@ -1,15 +1,19 @@
 .bde__ui__vertical-aside {
-  position: absolute;
+  position: fixed;
   right: -4em;
   top: 50%;
   transform: rotate(-90deg);
+  //transition: translate 400ms ease-out;
+  //transform: translateX(0);
 }
 .bde__ui__vertical-aside__counter {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 0;
   left: -2px;
   font-size: small;
+  //transition: translate 400ms ease-out;
+  //transform: translateX(0);
 }
 .bde__ui__vertical-aside__counter ul {
   list-style: none;
@@ -20,6 +24,7 @@
   margin-bottom: 1em;
   color: #ccc;
   display: flex;
+  cursor: pointer;
 }
 .bde__ui__vertical-aside__counter ul li div {
   width: 2em !important;
@@ -50,3 +55,14 @@
 .bde__ui__vertical-aside__counter ul li.active > div span {
   max-width: 100%;
 }
+// .bde__ui__vertical-aside__left,
+// .bde__ui__vertical-aside__right {
+//   transition: all 400ms ease-out;
+// }
+// #bde-main.transitioning .bde__ui__vertical-aside__left {
+//   transform: translateX(10em);
+// }
+
+// #bde-main.transitioning .bde__ui__vertical-aside__right {
+//   transform: translateY(-10em);
+// }

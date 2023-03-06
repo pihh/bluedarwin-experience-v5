@@ -1,6 +1,7 @@
 import Service from '@ember/service';
-import { service } from '@ember/service';
 import { CONFIG } from './config';
+import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 /**
  * Processo de transição:
  * 1 - Sai menu e navs
@@ -15,7 +16,7 @@ export default class TransitionService extends Service {
   @service('components/ui/container') container;
   @service('components/ui/background') background;
 
-  transition = null;
+  @tracked transition = null;
 
   async start(transition) {
     try {

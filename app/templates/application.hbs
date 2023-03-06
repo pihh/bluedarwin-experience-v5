@@ -1,4 +1,8 @@
-<main id="bde-main" class="{{this.background.$mainClassList}}">
+<main
+  id="bde-main"
+  class="{{this.background.$mainClassList}}
+    {{if this.transition.transition 'transitioning' ''}}"
+>
   <Ui::Background />
   <canvas {{did-insert this.didInsertCanvas}} id="experience-canvas"></canvas>
   {{outlet}}
