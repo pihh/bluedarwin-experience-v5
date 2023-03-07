@@ -3,6 +3,7 @@ import {
   BufferGeometry,
   Mesh,
   MeshBasicMaterial,
+  MeshLambertMaterial,
   PlaneGeometry,
   Points,
   PointsMaterial,
@@ -33,7 +34,7 @@ export class ExperienceTeamCarlosGaveias {
     // this.mesh = new Mesh(this.geometry, this.material);
 
     this.geometry = new BoxGeometry(1, 1, 1);
-    this.material = new MeshBasicMaterial({ color: 0x00ff00 });
+    this.material = new MeshLambertMaterial({ color: 0x00ff00 });
     this.object = new Mesh(this.geometry, this.material);
     this.setObjectX();
     this.experience.scene.add(this.object);
