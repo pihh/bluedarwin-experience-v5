@@ -11,13 +11,13 @@ import {
 } from 'three';
 import wait from '../../../utils/wait';
 
-export class ExperienceTeamCarlosGaveias {
+export class ExperienceProductChatbot {
   static instance;
   constructor(experience) {
-    if (ExperienceTeamCarlosGaveias.instance) {
-      return ExperienceTeamCarlosGaveias.instance;
+    if (ExperienceProductChatbot.instance) {
+      return ExperienceProductChatbot.instance;
     }
-    ExperienceTeamCarlosGaveias.instance = this;
+    ExperienceProductChatbot.instance = this;
     this.experience = experience;
     this.init();
   }
@@ -37,7 +37,7 @@ export class ExperienceTeamCarlosGaveias {
     this.geometry = new BoxGeometry(1, 1, 1);
     this.material = new MeshLambertMaterial({ color: 0x00ff00 });
     this.object = new Mesh(this.geometry, this.material);
-    this.object.name = 'team.carlos-galveias';
+    this.object.name = 'products.chatbot';
     this.object.visible = false;
     this.setObjectX();
     this.experience.scene.add(this.object);

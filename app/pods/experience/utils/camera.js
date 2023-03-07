@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { PerspectiveCamera } from 'three';
 import Experience from './experience';
+
 // import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default class Camera {
@@ -25,9 +26,6 @@ export default class Camera {
     // this.perspectiveCamera.position.x = 29;
     // this.perspectiveCamera.position.y = 14;
     this.perspectiveCamera.position.z = 5;
-
-    // this.helper = new THREE.CameraHelper(this.perspectiveCamera);
-    // this.scene.add(this.helper);
   }
 
   // setOrbitControls() {

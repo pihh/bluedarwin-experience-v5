@@ -6,6 +6,7 @@ export default class UiButtonSquaredComponent extends Component {
   @service router;
   @tracked isContactsOpen = false;
   @action onClick() {
+    console.log(this.args.actionName);
     this[this.args.actionName]();
   }
 

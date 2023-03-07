@@ -1,6 +1,7 @@
-import { Scene } from 'three';
+import { Scene, Vector3 } from 'three';
 
 import assets from '../config/assets';
+import wait from '../../../utils/wait';
 import EventEmitter from 'events';
 import Camera from './camera';
 import Renderer from './renderer';
@@ -37,6 +38,30 @@ export default class Experience {
     this.time.on('update', () => {
       this.update();
     });
+
+    this.cameraSlideDirection = 'none';
+  }
+
+  transitioning = false;
+  async transitionLeft() {
+    if (this.transitioning) return;
+    this.transitioning = true;
+    this.cameraSlideDirection = 'left';
+    await wait(1000);
+    this.camera.perspectiveCamera.position.x = -5;
+    this.cameraSlideDirection = 'center';
+    await wait(1000);
+    this.transitioning = false;
+  }
+  async transitionRight() {
+    if (this.transitioning) return;
+    this.transitioning = true;
+    this.cameraSlideDirection = 'right';
+    await wait(1000);
+    this.camera.perspectiveCamera.position.x = 7;
+    this.cameraSlideDirection = 'center';
+    await wait(1000);
+    this.transitioning = false;
   }
 
   resize() {
@@ -49,6 +74,37 @@ export default class Experience {
     this.renderer.update();
     this.camera.update();
     this.world.update();
+
+    if (this.cameraSlideDirection == 'left') {
+      this.camera.perspectiveCamera.position.lerp(
+        new Vector3(
+          7,
+          this.camera.perspectiveCamera.position.y,
+          this.camera.perspectiveCamera.position.z
+        ),
+        0.05
+      );
+    } else if (this.cameraSlideDirection == 'right') {
+      this.camera.perspectiveCamera.position.lerp(
+        new Vector3(
+          -5,
+          this.camera.perspectiveCamera.position.y,
+          this.camera.perspectiveCamera.position.z
+        ),
+        0.05
+      );
+    } else if (this.cameraSlideDirection == 'center') {
+      this.camera.perspectiveCamera.position.lerp(
+        new Vector3(
+          0,
+          this.camera.perspectiveCamera.position.y,
+          this.camera.perspectiveCamera.position.z
+        ),
+        0.05
+      );
+    } else {
+      this.camera.perspectiveCamera.position.x = 0;
+    }
     // this?.scroll?.raf();
   }
 }

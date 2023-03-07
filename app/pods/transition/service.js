@@ -15,6 +15,7 @@ import { tracked } from '@glimmer/tracking';
 export default class TransitionService extends Service {
   @service('components/ui/container') container;
   @service('components/ui/background') background;
+  @service experience;
 
   @tracked transition = null;
 
@@ -79,6 +80,43 @@ export default class TransitionService extends Service {
     }
   }
 
+  __enterExperience(config, direction = 'ltr') {
+    console.log('enter experience', {
+      config,
+      direction,
+      experience: this.experience.experience,
+      from: this?.transition?.from?.name,
+      to: this?.transition?.to?.name,
+    });
+    if (this.experience.experience.world.ready) {
+      const to = this?.transition?.to?.name;
+      const obj = this.experience.experience.world.objects.filter(
+        (el) => el.object.name == to
+      )[0];
+      if (obj) {
+        obj.enter();
+      }
+    }
+  }
+  __leaveExperience(config, direction = 'ltr') {
+    console.log('leave experience', {
+      config,
+      direction,
+      experience: this.experience.experience,
+      from: this?.transition?.from?.name,
+      to: this?.transition?.to?.name,
+    });
+    if (this.experience.experience.world.ready) {
+      const from = this?.transition?.from?.name;
+      const obj = this.experience.experience.world.objects.filter(
+        (el) => el.object.name == from
+      )[0];
+      if (obj) {
+        obj.leave();
+      }
+    }
+  }
+
   async __closeContainers(config) {
     if (!config.containers.scroll) {
       await this.container.leaveScrollbar();
@@ -105,17 +143,24 @@ export default class TransitionService extends Service {
 
   async firstTransition(config) {
     this.background.setTheme(config.background);
+
     await this.__openContainers(config);
+
+    this.__enterExperience(config, 'ltr');
+
     this.__setAsideContainer(config);
+
     await this.container.enterNavigation('ltr', config);
   }
 
   async sameLevelRTL(configTo, configFrom) {
     if (configTo.sublevel != configFrom.sublevel) {
       await this.container.leaveNavigation('rtl');
+      this.__leaveExperience(configTo, 'rtl');
       await this.__closeContainers(configTo);
 
       await this.__openContainers(configTo);
+      this.__enterExperience(configTo, 'rtl');
       this.__setAsideContainer(configTo);
       await this.container.enterNavigation('rtl', configTo);
     } else {
@@ -125,9 +170,11 @@ export default class TransitionService extends Service {
   async sameLevelLTR(configTo, configFrom) {
     if (configTo.sublevel != configFrom.sublevel) {
       await this.container.leaveNavigation('ltr');
+      this.__leaveExperience(configTo, 'ltr');
       await this.__closeContainers(configTo);
 
       await this.__openContainers(configTo);
+      this.__enterExperience(configTo, 'ltr');
       this.__setAsideContainer(configTo);
       await this.container.enterNavigation('ltr', configTo);
     } else {
@@ -145,9 +192,11 @@ export default class TransitionService extends Service {
      */
     try {
       await this.container.leaveNavigation('rtl');
+      this.__leaveExperience(config, 'rtl');
       await this.__closeContainers(config);
       await this.background.darkToLight();
       await this.__openContainers(config);
+      this.__enterExperience(config, 'rtl');
       this.__setAsideContainer(config);
       await this.container.enterNavigation('rtl', config);
     } catch (ex) {
@@ -157,9 +206,11 @@ export default class TransitionService extends Service {
   async nextLevelLTR(config) {
     try {
       await this.container.leaveNavigation('ltr');
+      this.__leaveExperience(config, 'ltr');
       await this.__closeContainers(config);
       await this.background.lightToDark();
       await this.__openContainers(config);
+      this.__enterExperience(config, 'ltr');
       this.__setAsideContainer(config);
       await this.container.enterNavigation('ltr', config);
     } catch (ex) {
