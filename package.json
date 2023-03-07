@@ -32,6 +32,7 @@
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^7.6.0",
+    "countup.js": "^2.3.2",
     "ember-auto-import": "^2.5.0",
     "ember-cli": "~4.10.0",
     "ember-cli-app-version": "^5.0.0",
@@ -59,22 +60,27 @@
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-qunit": "^7.3.4",
+    "events": "^3.3.0",
+    "gsap": "^3.11.3",
     "loader.js": "^4.7.0",
     "prettier": "^2.8.3",
     "qunit": "^2.19.3",
     "qunit-dom": "^2.0.0",
     "sass": "^1.58.3",
-    "tracked-built-ins": "^3.1.0",
-    "webpack": "^5.75.0",
     "three": "^0.147.0",
-    "events": "^3.3.0",
-    "gsap": "^3.11.3",
-    "countup.js": "^2.3.2"
+    "tracked-built-ins": "^3.1.0",
+    "webpack": "^5.75.0"
   },
   "engines": {
     "node": "14.* || 16.* || >= 18"
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "glslify": "^6.2.1",
+    "glslify-import-loader": "^0.1.2",
+    "glslify-loader": "^1.0.2",
+    "imports-loader": "^0.8.0"
   }
 }

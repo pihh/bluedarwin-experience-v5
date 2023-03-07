@@ -78,9 +78,11 @@ export default class Resources extends EventEmitter {
 
         this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
       } else if (asset.type === 'imageTexture') {
-        this.imageTexture[asset.name] = new TextureLoader();
-        this.imageTexture[asset.name].load(asset.path);
-        this.singleAssetLoaded(asset, this.imageTexture[asset.name]);
+        const tl = new TextureLoader();
+        tl.load(asset.path, (texture) => {
+          this.imageTexture[asset.name] = texture;
+          this.singleAssetLoaded(asset, this.imageTexture[asset.name]);
+        });
       }
     }
   }

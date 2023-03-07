@@ -140,4 +140,9 @@ export default [
     type: 'imageTexture',
     path: '/images/team.carlos-galveias.jpeg',
   },
+  {
+    name: 'teamFilipe',
+    type: 'imageTexture',
+    path: '/images/team.filipe-sa.jpeg',
+  },
 ];
