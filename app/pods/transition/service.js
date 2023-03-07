@@ -76,18 +76,11 @@ export default class TransitionService extends Service {
       this.container.pageStroke = config.page.stroke;
       this.container.loadAsideSection(this.container.asideSection, true);
     } catch (ex) {
-      console.log('ex', ex);
+      console.warn('ex', ex);
     }
   }
 
   __enterExperience(config, direction = 'ltr') {
-    console.log('enter experience', {
-      config,
-      direction,
-      experience: this.experience.experience,
-      from: this?.transition?.from?.name,
-      to: this?.transition?.to?.name,
-    });
     if (this.experience.experience.world.ready) {
       const to = this?.transition?.to?.name;
       const obj = this.experience.experience.world.objects.filter(
@@ -99,13 +92,6 @@ export default class TransitionService extends Service {
     }
   }
   __leaveExperience(config, direction = 'ltr') {
-    console.log('leave experience', {
-      config,
-      direction,
-      experience: this.experience.experience,
-      from: this?.transition?.from?.name,
-      to: this?.transition?.to?.name,
-    });
     if (this.experience.experience.world.ready) {
       const from = this?.transition?.from?.name;
       const obj = this.experience.experience.world.objects.filter(

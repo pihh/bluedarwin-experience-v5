@@ -9,15 +9,15 @@ import {
   PointsMaterial,
   Vector3,
 } from 'three';
-import wait from '../../../utils/wait';
+import wait from '../../utils/wait';
 
-export class ExperienceTeamCarlosGaveias {
+export class ExperienceJourney {
   static instance;
   constructor(experience) {
-    if (ExperienceTeamCarlosGaveias.instance) {
-      return ExperienceTeamCarlosGaveias.instance;
+    if (ExperienceJourney.instance) {
+      return ExperienceJourney.instance;
     }
-    ExperienceTeamCarlosGaveias.instance = this;
+    ExperienceJourney.instance = this;
     this.experience = experience;
     this.init();
   }
@@ -35,9 +35,9 @@ export class ExperienceTeamCarlosGaveias {
     // this.mesh = new Mesh(this.geometry, this.material);
 
     this.geometry = new BoxGeometry(1, 1, 1);
-    this.material = new MeshLambertMaterial({ color: 0xff0000 });
+    this.material = new MeshLambertMaterial({ color: 0x0000ff });
     this.object = new Mesh(this.geometry, this.material);
-    this.object.name = 'team.carlos-galveias';
+    this.object.name = 'journey';
     this.object.visible = false;
     this.setObjectX();
     this.experience.scene.add(this.object);

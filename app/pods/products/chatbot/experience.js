@@ -59,7 +59,6 @@ export class ExperienceProductChatbot {
 
     // this.experience.scene.add(this.mesh);
     // this.experience.scene.add(this.pointMesh);
-    console.log(this);
   }
   initLights() {}
   initShadows() {}

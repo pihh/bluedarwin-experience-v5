@@ -272,7 +272,6 @@ export default class ComponentsUiContainerService extends Service {
   ];
 
   async enterNavigation(direction = 'ltr', config) {
-    console.log(config);
     if (this.navigationLocked) return;
     this.navigationLocked = true;
 

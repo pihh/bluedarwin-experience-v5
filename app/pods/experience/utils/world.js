@@ -9,6 +9,7 @@ import Lights from './lights';
 import { EventEmitter } from 'events';
 import { ExperienceTeamCarlosGaveias } from '../../team/carlos-galveias/experience';
 import { ExperienceProductChatbot } from '../../products/chatbot/experience';
+import { ExperienceJourney } from '../../journey/experience';
 
 export default class World extends EventEmitter {
   objects = [];
@@ -27,6 +28,7 @@ export default class World extends EventEmitter {
       this.lights = new Lights(this.experience);
       this.objects.push(new ExperienceTeamCarlosGaveias(this.experience));
       this.objects.push(new ExperienceProductChatbot(this.experience));
+      this.objects.push(new ExperienceJourney(this.experience));
       //   this.objects.push(new Chatbot(this.experience));
       //   this.objects.push(new Streams(this.experience));
       //   this.objects.push(new Automation(this.experience));
