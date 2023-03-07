@@ -20,25 +20,3 @@ body {
 .text-uppercase {
   text-transform: uppercase;
 }
-
-.page-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.page-right,
-.page-left {
-  width: calc(50% - 6em);
-  height: 20em;
-}
-.page-right {
-}
-
-.page-left {
-}

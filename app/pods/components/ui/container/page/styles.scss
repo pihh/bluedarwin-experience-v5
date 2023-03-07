@@ -1,0 +1,22 @@
+.bde__ui__container__page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bde__ui__container__page__right,
+.bde__ui__container__page__left {
+  width: calc(50% - 10em);
+  height: 20em;
+}
+.bde__ui__container__page__right {
+}
+
+.bde__ui__container__page__left {
+  max-width: 30em;
+}

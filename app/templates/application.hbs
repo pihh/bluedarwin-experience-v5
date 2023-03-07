@@ -3,14 +3,28 @@
   class="{{this.background.$mainClassList}}
     {{if this.transition.transition 'transitioning' ''}}"
 >
+
+  {{! Background }}
   <Ui::Background />
+
+  {{! Left and right side text }}
   <Ui::Container::Aside />
+
+  {{! Experience canvas }}
   <canvas {{did-insert this.didInsertCanvas}} id="experience-canvas"></canvas>
+
   {{outlet}}
+
+  {{! Page info container }}
+  <Ui::Container::Page />
+
+  {{! Navigation Menu and Dev GUI }}
   <aside>
     <Ui::Container::Navigation />
     <Ui::Gui />
   </aside>
+
+  {{! Footer Container }}
   <footer>
     <div>
       <Ui::Container::Scrollbar />
@@ -21,4 +35,6 @@
     </div>
   </footer>
 </main>
+
+{{! Splash Screen }}
 <Ui::Splash />
