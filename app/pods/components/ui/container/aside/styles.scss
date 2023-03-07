@@ -1,15 +1,16 @@
 .bde__ui__vertical-aside {
   position: fixed;
-  right: -4em;
-  top: 50%;
-  transform: rotate(-90deg);
-  //transition: translate 400ms ease-out;
-  //transform: translateX(0);
+  right: 2em;
+  top: 0;
+  transform: rotate(180deg);
   z-index: 1;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
-.bde-theme-light .bde__ui__vertical-aside {
-  right: -5em;
-}
+
 .bde__ui__vertical-aside__counter {
   position: fixed;
   top: 50%;
@@ -70,10 +71,8 @@
 .bde__ui__vertical-aside__right {
   transition: all 400ms ease-out;
 }
-#bde-main.transitioning .bde__ui__vertical-aside__left {
-  transform: translateY(10em);
-}
 
-#bde-main.transitioning .bde__ui__vertical-aside__right {
+#bde-main.transitioning .bde__ui__vertical-aside__right,
+#bde-main.transitioning .bde__ui__vertical-aside__left {
   transform: translateX(-10em);
 }
