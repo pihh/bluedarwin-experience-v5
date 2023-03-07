@@ -71,8 +71,12 @@ export default class TransitionService extends Service {
       this.container.asideSections = [...config.asideMenu.sections];
       this.container.asideTitle = config.asideMenu.title;
       this.container.asideSubtitle = config.asideMenu.subtitle;
+      this.container.pageTitle = config.page.title;
+      this.container.pageSubtitle = config.page.subtitle;
+      this.container.pageStroke = config.page.stroke;
+      this.container.loadAsideSection(this.container.asideSection);
     } catch (ex) {
-      console.log(ex);
+      console.log('ex', ex);
     }
   }
 
@@ -113,7 +117,7 @@ export default class TransitionService extends Service {
       await this.__closeContainers(configTo);
 
       await this.__openContainers(configTo);
-      this.__setAsideContainer(config);
+      this.__setAsideContainer(configTo);
       await this.container.enterNavigation('rtl', configTo);
     } else {
       alert('@todo');

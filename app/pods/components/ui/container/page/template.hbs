@@ -1,13 +1,21 @@
 <div class="bde__ui__container__page">
   <section class="bde__ui__container__page__left">
-    <p class="bde-page-subtitle bde__ui__animation__blur">The mastermind</p>
-    <h1 class="bde-page-title bde__ui__animation__blur">
-      Carlos
-      <br /><span class="text-stroke">Galveias</span>
+    <p
+      class="bde-page-subtitle bde__ui__animation__blur bde__ui__page-content"
+    >{{this.container.pageSubtitle}}</p>
+    <h1 class="bde-page-title bde__ui__animation__blur bde__ui__page-content">
+      {{this.container.pageTitle}}
+      <br /><span class="text-stroke">{{this.container.pageStroke}}</span>
     </h1>
-    <p class="bde-page-content lorem-ipsum bde__ui__animation__blur"></p>
-    <p class="bde-page-content lorem-ipsum-1 bde__ui__animation__blur"></p>
-    <p class="bde-page-content lorem-ipsum bde__ui__animation__blur"></p>
+    <div class="bde-page-content-container">
+      {{#each this.container.pageContent as |content|}}
+        <p
+          class="bde-page-content lorem-ipsum bde__ui__animation__blur bde__ui__page-content"
+        ></p>
+
+      {{/each}}
+    </div>
+
   </section>
   <section class="bde__ui__container__page__right">
 

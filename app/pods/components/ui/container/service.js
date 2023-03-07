@@ -4,11 +4,89 @@ import { tracked } from '@glimmer/tracking';
 import wait from '../../../../utils/wait';
 
 export default class ComponentsUiContainerService extends Service {
+  // PAGE CONTAINER
+  @tracked pageTitle = '';
+  @tracked pageSubtitle = '';
+  @tracked pageStroke = '';
+  @tracked pageContent = [];
+
+  sliding = false;
+  __removeAllClasses() {
+    for (let $el of [...document.querySelectorAll('.bde__ui__page-content')]) {
+      $el.classList.remove('fade-in-up');
+      $el.classList.remove('fade-in-down');
+      $el.classList.remove('fade-out-up');
+      $el.classList.remove('fade-out-down');
+    }
+  }
+  async slideInUp() {
+    this.__removeAllClasses();
+    for (let $el of [...document.querySelectorAll('.bde__ui__page-content')]) {
+      await wait(50);
+      $el.classList.add('fade-in-up');
+    }
+  }
+
+  async slideInDown() {
+    this.__removeAllClasses();
+    for (let $el of [
+      ...document.querySelectorAll('.bde__ui__page-content'),
+    ].reverse()) {
+      await wait(50);
+      $el.classList.add('fade-in-down');
+    }
+  }
+
+  async slideOutUp() {
+    this.__removeAllClasses();
+    for (let $el of [...document.querySelectorAll('.bde__ui__page-content')]) {
+      $el.classList.add('fade-out-up');
+      await wait(50);
+    }
+  }
+
+  async slideOutDown() {
+    if (this.sliding) return;
+    this.sliding = true;
+    this.__removeAllClasses();
+
+    for (let $el of [
+      ...document.querySelectorAll('.bde__ui__page-content'),
+    ].reverse()) {
+      await wait(50);
+      $el.classList.add('fade-out-down');
+    }
+  }
+
   // ASIDE MENU
   @tracked asideTitle = '';
   @tracked asideSubtitle = '';
-  @tracked asideSections = [0, 1, 2];
+  @tracked asideSections = [
+    [0, 1, 2],
+    [0, 1],
+    [0, 1, 2, 3],
+  ];
   @tracked asideSection = 0;
+
+  async loadAsideSection(index) {
+    if (this.sliding) return;
+    this.sliding = true;
+    const direction = index >= this.asideSection ? 'down' : 'up';
+    if (direction == 'up') {
+      await this.slideOutUp();
+    } else {
+      await this.slideOutDown();
+    }
+    this.asideSection = index;
+
+    this.pageContent = [...this.asideSections[this.asideSection]];
+    if (direction == 'up') {
+      await this.slideInUp();
+    } else {
+      await this.slideInDown();
+    }
+    this.sliding = false;
+  }
 
   // TEAM MENU
   @tracked $teamClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
