@@ -24,7 +24,20 @@
 .bde__ui__page-content {
   // opacity: 1;
   // transform: translate3d(0, 0, 0);
+  // filter: blur(0);
 }
+.bde__ui__page-content.visible {
+  opacity: 1 !important;
+  // transform: translate3d(0, 0, 0);
+  filter: blur(0) !important;
+}
+
+.bde__ui__page-content.invisible {
+  opacity: 0 !important;
+  // transform: translate3d(0, 0, 0);
+  filter: blur(4px) !important;
+}
+
 .bde__ui__page-content.fade-in-up {
   animation: fadeInUp 300ms ease-in both;
 }
@@ -36,7 +49,7 @@
   animation: fadeOutUp 300ms ease-in both;
 }
 .bde__ui__page-content.fade-out-down {
-  animation: fadeOutDown 350ms ease-in both;
+  animation: fadeOutDown 300ms ease-in both;
 }
 
 @keyframes fadeInUp {

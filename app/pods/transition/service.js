@@ -65,7 +65,6 @@ export default class TransitionService extends Service {
     }
   }
   __setAsideContainer(config) {
-    console.log({ config });
     try {
       this.container.asideSection = 0;
       this.container.asideSections = [...config.asideMenu.sections];
@@ -74,7 +73,7 @@ export default class TransitionService extends Service {
       this.container.pageTitle = config.page.title;
       this.container.pageSubtitle = config.page.subtitle;
       this.container.pageStroke = config.page.stroke;
-      this.container.loadAsideSection(this.container.asideSection);
+      this.container.loadAsideSection(this.container.asideSection, true);
     } catch (ex) {
       console.log('ex', ex);
     }

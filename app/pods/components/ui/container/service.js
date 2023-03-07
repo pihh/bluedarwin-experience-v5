@@ -10,52 +10,70 @@ export default class ComponentsUiContainerService extends Service {
   @tracked pageStroke = '';
   @tracked pageContent = [];
 
-  sliding = false;
-  __removeAllClasses() {
-    for (let $el of [...document.querySelectorAll('.bde__ui__page-content')]) {
+  @tracked sliding = false;
+  __removeAllClasses(visible = true) {
+    const $els = [...document.querySelectorAll('.bde__ui__page-content')];
+    for (let $el of $els) {
       $el.classList.remove('fade-in-up');
       $el.classList.remove('fade-in-down');
       $el.classList.remove('fade-out-up');
       $el.classList.remove('fade-out-down');
+      if (visible) {
+        $el.classList.add('visible');
+        $el.classList.remove('invisible');
+      } else {
+        $el.classList.remove('visible');
+        $el.classList.add('invisible');
+      }
     }
   }
   async slideInUp() {
-    this.__removeAllClasses();
-    for (let $el of [...document.querySelectorAll('.bde__ui__page-content')]) {
+    this.__removeAllClasses(false);
+    const $els = [...document.querySelectorAll('.bde__ui__page-content')];
+    for (let $el of $els) {
       await wait(50);
+      $el.classList.remove('visible');
+      $el.classList.remove('invisible');
       $el.classList.add('fade-in-up');
     }
+    await wait(300);
   }
 
   async slideInDown() {
-    this.__removeAllClasses();
-    for (let $el of [
-      ...document.querySelectorAll('.bde__ui__page-content'),
-    ].reverse()) {
+    this.__removeAllClasses(false);
+    const $els = [...document.querySelectorAll('.bde__ui__page-content')];
+    for (let $el of $els.reverse()) {
       await wait(50);
+      $el.classList.remove('visible');
+      $el.classList.remove('invisible');
       $el.classList.add('fade-in-down');
     }
+    await wait(300);
   }
 
   async slideOutUp() {
-    this.__removeAllClasses();
-    for (let $el of [...document.querySelectorAll('.bde__ui__page-content')]) {
+    this.__removeAllClasses(true);
+    const $els = [...document.querySelectorAll('.bde__ui__page-content')];
+    for (let $el of $els) {
+      $el.classList.remove('visible');
+      $el.classList.remove('invisible');
       $el.classList.add('fade-out-up');
       await wait(50);
     }
+    await wait(300);
   }
 
   async slideOutDown() {
-    if (this.sliding) return;
-    this.sliding = true;
-    this.__removeAllClasses();
+    this.__removeAllClasses(true);
+    const $els = [...document.querySelectorAll('.bde__ui__page-content')];
 
-    for (let $el of [
-      ...document.querySelectorAll('.bde__ui__page-content'),
-    ].reverse()) {
+    for (let $el of $els.reverse()) {
       await wait(50);
+      $el.classList.remove('visible');
+      $el.classList.remove('invisible');
       $el.classList.add('fade-out-down');
     }
+    await wait(300);
   }
 
   // ASIDE MENU
@@ -68,9 +86,16 @@ export default class ComponentsUiContainerService extends Service {
   ];
   @tracked asideSection = 0;
 
-  async loadAsideSection(index) {
+  async loadAsideSection(index, isTransition) {
+    if (isTransition) {
+      this.asideSection = index;
+      this.pageContent = [...this.asideSections[this.asideSection]];
+      this.sliding = false;
+      return;
+    }
     if (this.sliding) return;
     this.sliding = true;
+
     const direction = index >= this.asideSection ? 'down' : 'up';
     if (direction == 'up') {
       await this.slideOutUp();

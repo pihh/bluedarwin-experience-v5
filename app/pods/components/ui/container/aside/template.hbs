@@ -14,7 +14,8 @@
 
       {{#each this.container.asideSections as |section index|}}
         <li
-          class="{{if (eq this.container.asideSection index) 'active' ''}}"
+          class="{{if (eq this.container.asideSection index) 'active' ''}}
+            {{if this.container.sliding '' 'pointer'}}"
           {{action this.onClick index}}
         >
           <div>
