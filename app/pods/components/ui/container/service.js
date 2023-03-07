@@ -1,9 +1,12 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
 
 import wait from '../../../../utils/wait';
 
 export default class ComponentsUiContainerService extends Service {
+  @service transition;
+
   // PAGE CONTAINER
   @tracked pageTitle = '';
   @tracked pageSubtitle = '';
@@ -85,8 +88,19 @@ export default class ComponentsUiContainerService extends Service {
     [0, 1, 2, 3],
   ];
   @tracked asideSection = 0;
+  async nextAsideSection() {
+    if (this.asideSection < this.asideSections.length - 1) {
+      await this.loadAsideSection(this.asideSection + 1);
+    }
+  }
+  async prevAsideSection() {
+    if (this.asideSection > 0) {
+      await this.loadAsideSection(this.asideSection - 1);
+    }
+  }
 
   async loadAsideSection(index, isTransition) {
+    if (this.transition.transition) return;
     if (isTransition) {
       this.asideSection = index;
       this.pageContent = [...this.asideSections[this.asideSection]];
