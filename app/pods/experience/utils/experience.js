@@ -46,9 +46,9 @@ export default class Experience {
   }
 
   update() {
-    // this.renderer.update();
-    // // this.camera.update();
-    // this.world.update();
+    this.renderer.update();
+    this.camera.update();
+    this.world.update();
     // this?.scroll?.raf();
   }
 }

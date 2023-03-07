@@ -1,4 +1,5 @@
 import {
+  BoxGeometry,
   BufferGeometry,
   Mesh,
   MeshBasicMaterial,
@@ -26,10 +27,17 @@ export class ExperienceTeamCarlosGaveias {
   }
 
   initModel() {
-    this.texture = this.experience.resources.imageTexture['teamCarlos'];
-    this.geometry = new PlaneGeometry(10, 10);
-    this.material = new MeshBasicMaterial({ map: this.texture });
-    this.mesh = new Mesh(this.geometry, this.material);
+    // this.texture = this.experience.resources.imageTexture['teamCarlos'];
+    // this.geometry = new PlaneGeometry(10, 10);
+    // this.material = new MeshBasicMaterial({ map: this.texture });
+    // this.mesh = new Mesh(this.geometry, this.material);
+
+    this.geometry = new BoxGeometry(1, 1, 1);
+    this.material = new MeshBasicMaterial({ color: 0x00ff00 });
+    this.object = new Mesh(this.geometry, this.material);
+    this.setObjectX();
+    this.experience.scene.add(this.object);
+
     // console.log(this.geometry);
     // this.particles = [];
     // for (let i = 0; i < this.geometry.vertices.length; i++) {
@@ -44,14 +52,30 @@ export class ExperienceTeamCarlosGaveias {
     // this.pointGeometry = new BufferGeometry().setFromPoints(this.particles);
     // this.pointMaterial = new PointsMaterial({ size: 0.1 });
     // this.pointMesh = new Points(this.pointGeometry, this.pointMaterial);
-    console.log(this.experience.scene, this.mesh);
+
     // this.experience.scene.add(this.mesh);
     // this.experience.scene.add(this.pointMesh);
   }
   initLights() {}
   initShadows() {}
 
+  setObjectX() {
+    const $width = this.experience.sizes.width;
+    if ($width >= 1536) {
+      this.object.position.x = 1.5;
+    } else if ($width > 1280) {
+      this.object.position.x = 1;
+    } else if ($width > 1024) {
+      this.object.position.x = 0.75;
+    } else if ($width > 768) {
+      this.object.position.x = 0.6;
+    } else {
+      this.object.position.x = -0.5;
+    }
+  }
   render() {
+    this.object.rotation.x += 0.01;
+    this.object.rotation.y += 0.01;
     // for (let i = 0; i < this.particles.length; i++) {
     //   this.particles[i].add(
     //     new Vector3(
