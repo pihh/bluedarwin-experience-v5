@@ -1,1 +1,19 @@
 price_banner: The {product} costs {price, number, ::currency/USD}
+products: products
+team: team
+contact: contact
+contact_info: Talk with us via the following email address xxx@bluedarwin.com
+splash_headline: Transformation should be easy
+powered_by: Powered by Cognus Team @ IBM
+go: go
+loading: loading
+ibm_presents: IBM Presents
+bd_products: Bluedarwin products
+bd_team: Bluedarwin team
+bd_experience: Bluedarwin Experience
+button_back: Back
+button_chatbot: CHATBOT
+button_doc_intel: doc intel
+button_streams: streams
+button_automations: automations
+scroll_to_explore: scroll to explore

@@ -14,8 +14,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Experience',
-      subtitle: 'IBM Presents',
+      title: 'bd_experience',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1],
@@ -25,7 +25,7 @@ export const CONFIG = {
     page: {
       title: 'Bluedarwin',
       stroke: 'Concept',
-      subtitle: 'IBM Presents',
+      subtitle: 'ibm_presents',
     },
   },
   'team.carlos-galveias': {
@@ -44,8 +44,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Team',
-      subtitle: 'IBM Presents',
+      title: 'bd_team',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1],
@@ -73,8 +73,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Team',
-      subtitle: 'IBM Presents',
+      title: 'bd_team',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1],
@@ -102,8 +102,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Team',
-      subtitle: 'IBM Presents',
+      title: 'bd_team',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
@@ -131,8 +131,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Team',
-      subtitle: 'IBM Presents',
+      title: 'bd_team',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
@@ -160,8 +160,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Team',
-      subtitle: 'IBM Presents',
+      title: 'bd_team',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
@@ -189,8 +189,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Team',
-      subtitle: 'IBM Presents',
+      title: 'bd_team',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
@@ -246,8 +246,8 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Bluedarwin Products',
-      subtitle: 'IBM Presents',
+      title: 'bd_products',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1],
@@ -274,13 +274,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Services',
-      subtitle: 'Bluedarwin',
+      title: 'bd_products',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2],
       ],
+    },
+    page: {
+      title: 'Document',
+      stroke: 'Intelligence',
+      subtitle: 'Bluedarwin products',
     },
   },
   'products.streams': {
@@ -297,13 +302,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Services',
-      subtitle: 'Bluedarwin',
+      title: 'bd_products',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2],
       ],
+    },
+    page: {
+      title: 'Cognus',
+      stroke: 'Streams',
+      subtitle: 'Bluedarwin products',
     },
   },
   'products.automations': {
@@ -320,13 +330,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Services',
-      subtitle: 'Bluedarwin',
+      title: 'bd_products',
+      subtitle: 'ibm_presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2],
       ],
+    },
+    page: {
+      title: 'Cognus',
+      stroke: 'Automations',
+      subtitle: 'Bluedarwin products',
     },
   },
 };

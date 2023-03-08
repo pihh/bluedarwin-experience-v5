@@ -19,7 +19,7 @@
       <div class="bde__ui-button-loader__circle">
         <h1>
           {{#if this.loaded}}
-            GO
+            {{t "go"}}
           {{else}}
             {{this.progress}}%
           {{/if}}
@@ -31,7 +31,9 @@
     {{#if this.loaded}}
       <div class="bde__ui-button-loader__title__dots">&nbsp;</div>
     {{else}}
-      Loading<div class="bde__ui-button-loader__title__dots">{{this.dots}}</div>
+      {{t "loading"}}<div
+        class="bde__ui-button-loader__title__dots"
+      >{{this.dots}}</div>
     {{/if}}
   </div>
 </div>
