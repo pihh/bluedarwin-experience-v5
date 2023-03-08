@@ -73,13 +73,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Luis Pombo',
-      subtitle: 'The data scientist',
+      title: 'Bluedarwin Team',
+      subtitle: 'IBM Presents',
       sections: [
         [0, 1, 2],
-        [0, 1, 2],
-        [0, 1, 2],
+        [0, 1],
+        [0, 1, 2, 3],
       ],
+    },
+    page: {
+      title: 'Luis',
+      stroke: 'Pombo',
+      subtitle: 'The data scientist',
     },
   },
   'team.filipe-sa': {
@@ -97,13 +102,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Filipe Sá',
-      subtitle: 'The front end guy',
+      title: 'Bluedarwin Team',
+      subtitle: 'IBM Presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2],
       ],
+    },
+    page: {
+      title: 'Filipe',
+      stroke: 'Mota de Sá',
+      subtitle: 'The frontend guy',
     },
   },
   'team.miguel-vasques': {
@@ -121,13 +131,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Miguel Vasques',
-      subtitle: 'The machines master',
+      title: 'Bluedarwin Team',
+      subtitle: 'IBM Presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2],
       ],
+    },
+    page: {
+      title: 'Miguel',
+      stroke: 'Vasques',
+      subtitle: 'The machinery master',
     },
   },
   'team.ricardo-favas': {
@@ -145,13 +160,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Ricardo favas',
-      subtitle: 'Bluedarwin',
+      title: 'Bluedarwin Team',
+      subtitle: 'IBM Presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2],
       ],
+    },
+    page: {
+      title: 'Ricardo',
+      stroke: 'Favas',
+      subtitle: 'The one-man army',
     },
   },
   'team.rui-carvoeiro': {
@@ -169,13 +189,18 @@ export const CONFIG = {
       { title: 'contact', action: 'toggleContacts' },
     ],
     asideMenu: {
-      title: 'Rui carvoeiro',
-      subtitle: 'Bluedarwin',
+      title: 'Bluedarwin Team',
+      subtitle: 'IBM Presents',
       sections: [
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2],
       ],
+    },
+    page: {
+      title: 'Rui',
+      stroke: 'Carvoeiro',
+      subtitle: 'The diplomat',
     },
   },
   'team.ricardo-perleques': {
@@ -202,8 +227,9 @@ export const CONFIG = {
       ],
     },
     page: {
-      title: 'Ricardo Perleques',
-      subtitle: 'Bluedarwin',
+      title: 'Ricardo',
+      stroke: 'Perleques',
+      subtitle: 'The cloud genious',
     },
   },
   'products.chatbot': {

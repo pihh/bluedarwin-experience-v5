@@ -13,9 +13,10 @@ import { tracked } from '@glimmer/tracking';
  */
 
 export default class TransitionService extends Service {
+  @service experience;
+
   @service('components/ui/container') container;
   @service('components/ui/background') background;
-  @service experience;
 
   @tracked transition = null;
 
@@ -150,7 +151,18 @@ export default class TransitionService extends Service {
       this.__setAsideContainer(configTo);
       await this.container.enterNavigation('rtl', configTo);
     } else {
-      alert('@todo');
+      // TODO
+      //await this.container.leaveNavigation('ltr');
+      this.__leaveExperience(configTo, 'ltr');
+      await this.__closeContainers(configTo);
+
+      await this.__openContainers(configTo);
+      this.__enterExperience(configTo, 'ltr');
+      this.__setAsideContainer(configTo);
+      //await this.container.enterNavigation('ltr', configTo);
+      // this.__leaveExperience(configTo, 'rtl');
+      // await wait(1000);
+      // this.__enterExperience(configTo, 'rtl');
     }
   }
   async sameLevelLTR(configTo, configFrom) {
@@ -164,7 +176,18 @@ export default class TransitionService extends Service {
       this.__setAsideContainer(configTo);
       await this.container.enterNavigation('ltr', configTo);
     } else {
-      alert('@todo');
+      // TODO
+      //await this.container.leaveNavigation('ltr');
+      this.__leaveExperience(configTo, 'ltr');
+      await this.__closeContainers(configTo);
+
+      await this.__openContainers(configTo);
+      this.__enterExperience(configTo, 'ltr');
+      this.__setAsideContainer(configTo);
+      //await this.container.enterNavigation('ltr', configTo);
+      // this.__leaveExperience(configTo, 'ltr');
+      // await wait(1000);
+      // this.__enterExperience(configTo, 'ltr');
     }
   }
 

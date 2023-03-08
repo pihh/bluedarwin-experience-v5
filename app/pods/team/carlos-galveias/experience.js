@@ -1,6 +1,6 @@
-import { BluedarwinExperienceCard } from '../../experience/objects/image';
+import { BluedarwinExperienceImage } from '../../experience/objects/image';
 
-export class ExperienceTeamCarlosGaveias extends BluedarwinExperienceCard {
+export class ExperienceTeamCarlosGaveias extends BluedarwinExperienceImage {
   static instance;
   constructor(experience) {
     super();

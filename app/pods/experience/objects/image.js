@@ -1,22 +1,10 @@
 import {
-  BoxGeometry,
-  BufferAttribute,
-  BufferGeometry,
   Color,
   DoubleSide,
-  InstancedBufferAttribute,
-  InstancedBufferGeometry,
-  Mesh,
-  MeshBasicMaterial,
-  MeshLambertMaterial,
   PlaneGeometry,
   Points,
-  PointsMaterial,
-  RawShaderMaterial,
   ShaderMaterial,
-  SphereGeometry,
   Vector2,
-  Vector3,
   Vector4,
 } from 'three';
 import wait from '../../../utils/wait';
@@ -25,13 +13,14 @@ import lerp from '../../../utils/lerp';
 import vertexShader from '../shaders/particlesVertex';
 import fragmentShader from '../shaders/particlesFragment';
 
-export class BluedarwinExperienceCard {
+export class BluedarwinExperienceImage {
   constructor() {}
 
   create(name, textureName) {
     this.__initModel(name, textureName);
     this.__initShadows();
     this.__initLights();
+    this.__initEvents();
   }
 
   __initModel(name, textureName) {
@@ -74,16 +63,19 @@ export class BluedarwinExperienceCard {
 
     // point cloud
     this.object = new Points(this.geometry, this.material);
-
+    this.object.rotation.y = -Math.PI / 5;
     this.object.name = name;
     this.object.visible = false;
     this.setObjectX();
     this.experience.scene.add(this.object);
-    console.log(this);
   }
   __initLights() {}
   __initShadows() {}
-
+  __initEvents() {
+    this.experience.eventEmitter.on('loadAsideSection', () => {
+      this.glitch();
+    });
+  }
   setObjectX() {
     const $width = this.experience.sizes.width;
     if ($width >= 1536) {
@@ -105,15 +97,22 @@ export class BluedarwinExperienceCard {
     this.material.uniforms.time.value = this.experience.time.elapsed;
   }
 
+  // __getDistortion(distortion, duration) {
+  //   const maxDuration = distortion * 1000;
+  //   const unit = maxDistortion / duration;
+  //   return { distortion, duration, unit };
+  // }
+
   async explode() {
     const distortion = 1;
     const maxDistortion = distortion * 1000;
     const duration = 50;
     const unit = maxDistortion / duration;
+    // const { distortion, duration, unit } = this.__getDistortion(1, 50);
     for (let i = 0; i < duration; i++) {
       this.uniforms.distortion.value = (i * unit) / 1000;
       this.uniforms.opacity.value = 1 - i / duration / 2;
-      await wait(0);
+      await wait(1);
     }
     this.uniforms.opacity.value = 0;
     this.uniforms.distortion.value = distortion;
@@ -123,18 +122,42 @@ export class BluedarwinExperienceCard {
     const maxDistortion = distortion * 1000;
     const duration = 50;
     const unit = maxDistortion / duration;
+    //const { distortion, duration, unit } = this.__getDistortion(1, 50);
     for (let i = 0; i < duration; i++) {
       this.uniforms.distortion.value = distortion - (i * unit) / 1000;
       this.uniforms.opacity.value = i / duration;
-      await wait(0);
+      await wait(1);
     }
     this.uniforms.opacity.value = 1;
     this.uniforms.distortion.value = 0;
   }
 
+  isGlitching = false;
+  async glitch() {
+    if (this.isGlitching) return;
+    this.isGlitching = true;
+    // (Math.random() * (1.2 - 0.8) + 0.8).toFixed(4);
+    const distortion = 1.2;
+    const maxDistortion = distortion * 1000;
+    const duration = 25;
+    const unit = maxDistortion / duration;
+    for (let i = 0; i < duration; i++) {
+      this.uniforms.distortion.value = (i * unit) / 1000;
+      await wait(1);
+    }
+    this.uniforms.distortion.value = distortion;
+    await wait(1500);
+    for (let i = 0; i < duration; i++) {
+      this.uniforms.distortion.value = distortion - (i * unit) / 1000;
+      await wait(1);
+    }
+    this.uniforms.distortion.value = 0;
+    this.isGlitching = false;
+  }
+
   async enter() {
     this.object.visible = false;
-    this.experience.transitionLeft();
+    //this.experience.transitionLeft();
     await wait(2000);
     this.object.visible = true;
     this.implode();
@@ -142,7 +165,7 @@ export class BluedarwinExperienceCard {
   async leave() {
     this.object.visible = true;
     this.explode();
-    this.experience.transitionRight();
+    //this.experience.transitionRight();
     await wait(1000);
     this.object.visible = false;
   }

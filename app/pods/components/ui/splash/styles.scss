@@ -14,6 +14,7 @@
 }
 .bde__ui-splash.opacity-0 {
   opacity: 0;
+  filter: blur(4px);
 }
 
 .bde__ui-splash.scale-90 {
@@ -32,6 +33,7 @@
 .bde-page-powered {
   transition: all 1s ease-out;
 }
+/*
 .bde__ui-splash.opacity-0 .bde-page-subtitle {
   transform: translateX(-150px);
   opacity: 0;
@@ -44,3 +46,4 @@
   transform: translateY(15px);
   opacity: 0;
 }
+*/

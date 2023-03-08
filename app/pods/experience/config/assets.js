@@ -145,4 +145,29 @@ export default [
     type: 'imageTexture',
     path: '/images/team.filipe-sa.jpeg',
   },
+  {
+    name: 'teamLuis',
+    type: 'imageTexture',
+    path: '/images/team.luis-pombo.jpeg',
+  },
+  {
+    name: 'teamMiguel',
+    type: 'imageTexture',
+    path: '/images/team.miguel-vasques.jpeg',
+  },
+  {
+    name: 'teamFavas',
+    type: 'imageTexture',
+    path: '/images/team.ricardo-favas.jpeg',
+  },
+  {
+    name: 'teamRui',
+    type: 'imageTexture',
+    path: '/images/team.rui-carvoeiro.jpeg',
+  },
+  {
+    name: 'teamPerleques',
+    type: 'imageTexture',
+    path: '/images/team.ricardo-perleques.jpeg',
+  },
 ];

@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 export default class UiButtonRoundedComponent extends Component {
   @service router;
   @action onClick() {
+    console.log('an', this.args.actionName);
     this[this.args.actionName]();
   }
 
@@ -46,7 +47,7 @@ export default class UiButtonRoundedComponent extends Component {
   goToRui() {
     this.router.transitionTo('team.rui-carvoeiro');
   }
-  goToPerleques() {
+  goToRicardo() {
     this.router.transitionTo('team.ricardo-perleques');
   }
 }

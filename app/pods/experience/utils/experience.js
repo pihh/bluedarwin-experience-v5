@@ -48,9 +48,7 @@ export default class Experience {
     this.transitioning = true;
     this.cameraSlideDirection = 'left';
     await wait(1000);
-    this.camera.perspectiveCamera.position.x = -5;
-    this.cameraSlideDirection = 'center';
-    await wait(1000);
+    await this.cameraLTR();
     this.transitioning = false;
   }
   async transitionRight() {
@@ -58,10 +56,20 @@ export default class Experience {
     this.transitioning = true;
     this.cameraSlideDirection = 'right';
     await wait(1000);
+    await this.cameraRTL();
+    this.transitioning = false;
+  }
+
+  async cameraRTL() {
     this.camera.perspectiveCamera.position.x = 7;
     this.cameraSlideDirection = 'center';
     await wait(1000);
-    this.transitioning = false;
+  }
+
+  async cameraLTR() {
+    this.camera.perspectiveCamera.position.x = -5;
+    this.cameraSlideDirection = 'center';
+    await wait(1000);
   }
 
   resize() {
