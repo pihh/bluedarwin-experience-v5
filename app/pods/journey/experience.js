@@ -1,16 +1,6 @@
-import {
-  BoxGeometry,
-  BufferGeometry,
-  Mesh,
-  MeshBasicMaterial,
-  MeshLambertMaterial,
-  PlaneGeometry,
-  Points,
-  PointsMaterial,
-  Vector3,
-} from 'three';
-import wait from '../../utils/wait';
+import { BluedarwinExperienceCard } from '../experience/objects/card';
 
+/*
 export class ExperienceJourney {
   static instance;
   constructor(experience) {
@@ -107,5 +97,19 @@ export class ExperienceJourney {
     this.experience.transitionRight();
     await wait(1000);
     this.object.visible = false;
+  }
+}
+*/
+
+export class ExperienceJourney extends BluedarwinExperienceCard {
+  static instance;
+  constructor(experience) {
+    super();
+    if (ExperienceJourney.instance) {
+      return ExperienceJourney.instance;
+    }
+    ExperienceJourney.instance = this;
+    this.experience = experience;
+    this.create('journey');
   }
 }

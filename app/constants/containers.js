@@ -27,6 +27,7 @@ export const CONFIG = {
       stroke: 'Concept',
       subtitle: 'ibm_presents',
     },
+    assets: ['journeyVideo1', 'journeyVideo2', 'journeyVideo3'],
   },
   'team.carlos-galveias': {
     level: 0,
@@ -271,6 +272,15 @@ export const CONFIG = {
       stroke: 'Chatbot',
       subtitle: 'bd_products',
     },
+    assets: [
+      'chatbotIntro',
+      'chatbotWatson',
+      'chatbotConversation',
+      'chatbotDragDrop',
+      'chatbotMultiChannel',
+      'chatbotKpi',
+      'chatbotSecure',
+    ],
   },
   'products.document-intelligence': {
     level: 1,
@@ -311,6 +321,15 @@ export const CONFIG = {
       stroke: 'Intelligence',
       subtitle: 'bd_products',
     },
+    assets: [
+      'chatbotIntro',
+      'chatbotWatson',
+      'chatbotConversation',
+      'chatbotDragDrop',
+      'chatbotMultiChannel',
+      'chatbotKpi',
+      'chatbotSecure',
+    ],
   },
   'products.streams': {
     level: 1,
@@ -331,7 +350,6 @@ export const CONFIG = {
       sections: [
         ['content_streams_0_0', 'content_streams_0_1', 'content_streams_0_2'],
         ['content_streams_1_0', 'content_streams_1_1', 'content_streams_1_2'],
-        ['content_streams_2_0', 'content_streams_2_1', 'content_streams_2_2'],
       ],
     },
     page: {
@@ -339,6 +357,7 @@ export const CONFIG = {
       stroke: 'Streams',
       subtitle: 'bd_products',
     },
+    assets: ['streamVideo1', 'streamVideo2'],
   },
   'products.automations': {
     level: 1,
@@ -367,11 +386,6 @@ export const CONFIG = {
           'content_automations_1_1',
           'content_automations_1_2',
         ],
-        [
-          'content_automations_2_0',
-          'content_automations_2_1',
-          'content_automations_2_2',
-        ],
       ],
     },
     page: {
@@ -379,5 +393,6 @@ export const CONFIG = {
       stroke: 'Automations',
       subtitle: 'bd_products',
     },
+    assets: ['automationVideo1', 'automationVideo2'],
   },
 };

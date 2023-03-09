@@ -16,6 +16,8 @@ import { ExperienceTeamRicardoPerleques } from '../../team/ricardo-perleques/exp
 import { ExperienceTeamRuiCarvoeiro } from '../../team/rui-carvoeiro/experience';
 import { ExperienceProductChatbot } from '../../products/chatbot/experience';
 import { ExperienceJourney } from '../../journey/experience';
+import { ExperienceProductDocumentIntelligence } from '../../products/document-intelligence/experience';
+import { ExperienceProductAutomations } from '../../products/automations/experience';
 
 export default class World extends EventEmitter {
   objects = [];
@@ -41,12 +43,13 @@ export default class World extends EventEmitter {
       this.objects.push(new ExperienceTeamRuiCarvoeiro(this.experience));
 
       this.objects.push(new ExperienceProductChatbot(this.experience));
+      this.objects.push(
+        new ExperienceProductDocumentIntelligence(this.experience)
+      );
+      this.objects.push(new ExperienceProductAutomations(this.experience));
+      this.objects.push(new ExperienceProductAutomations(this.experience));
       this.objects.push(new ExperienceJourney(this.experience));
-      //   this.objects.push(new Chatbot(this.experience));
-      //   this.objects.push(new Streams(this.experience));
-      //   this.objects.push(new Automation(this.experience));
-      //   this.objects.push(new Platform(this.experience));
-      //   this.objects.push(new DocumentIntelligence(this.experience));
+
       //
       for (let object of this.objects) {
         this.scene.add(object.object);

@@ -1,27 +1,27 @@
 export default [
   {
-    name: 'chatbot',
+    name: 'products.chatbot',
     type: 'glbModel',
     // path: '/models/base-card.glb',
     path: '/models/base-card2.glb',
   },
   {
-    name: 'stream',
+    name: 'products.streams',
     type: 'glbModel',
     path: '/models/base-stream2.glb',
   },
   {
-    name: 'platform',
+    name: 'journey',
     type: 'glbModel',
     path: '/models/platform.glb',
   },
   {
-    name: 'automation',
+    name: 'products.automations',
     type: 'glbModel',
     path: '/models/base-stream2.glb',
   },
   {
-    name: 'document-intelligence',
+    name: 'products.document-intelligence',
     type: 'glbModel',
     path: '/models/base-stream2.glb',
   },
@@ -80,6 +80,31 @@ export default [
   //   type: 'imageTexture',
   //   path: '/images/city-3.jpg',
   // },
+  {
+    name: 'journeyVideo1',
+    type: 'videoTexture',
+    path: '/videos/sintel.mp4',
+  },
+  {
+    name: 'journeyVideo2',
+    type: 'videoTexture',
+    path: '/videos/particles.mp4',
+  },
+  {
+    name: 'journeyVideo3',
+    type: 'videoTexture',
+    path: '/videos/watson-logo.mp4',
+  },
+  {
+    name: 'streamVideo2',
+    type: 'videoTexture',
+    path: '/videos/streams.mp4',
+  },
+  {
+    name: 'streamVideo2',
+    type: 'videoTexture',
+    path: '/videos/streams.mp4',
+  },
   {
     name: 'streamVideo1',
     type: 'videoTexture',

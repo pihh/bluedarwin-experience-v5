@@ -120,7 +120,7 @@ export default class ComponentsUiContainerService extends Service {
       if (this.sliding) return;
       this.sliding = true;
 
-      this.experience.experience.eventEmitter.emit('loadAsideSection');
+      this.experience.experience.eventEmitter.emit('loadAsideSection', index);
 
       const direction = index >= this.asideSection ? 'down' : 'up';
       if (direction == 'up') {

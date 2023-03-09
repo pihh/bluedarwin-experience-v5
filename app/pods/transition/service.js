@@ -43,6 +43,7 @@ export default class TransitionService extends Service {
 
     if (!from) {
       // First load
+
       this.firstTransition(CONFIG[to]);
     } else {
       const fromLevel = CONFIG[from].level;
@@ -87,10 +88,12 @@ export default class TransitionService extends Service {
   __enterExperience(config, direction = 'ltr') {
     if (this.experience.experience.world.ready) {
       const to = this?.transition?.to?.name;
+      console.log({ to });
       const obj = this.experience.experience.world.objects.filter(
         (el) => el.object.name == to
       )[0];
       if (obj) {
+        console.log(obj.name, 'obj name to');
         obj.enter();
       }
     }
@@ -98,10 +101,12 @@ export default class TransitionService extends Service {
   __leaveExperience(config, direction = 'ltr') {
     if (this.experience.experience.world.ready) {
       const from = this?.transition?.from?.name;
+      console.log({ from });
       const obj = this.experience.experience.world.objects.filter(
         (el) => el.object.name == from
       )[0];
       if (obj) {
+        console.log(obj, 'obj name from');
         obj.leave();
       }
     }
@@ -132,6 +137,7 @@ export default class TransitionService extends Service {
   }
 
   async firstTransition(config) {
+    console.log('first transition');
     this.background.setTheme(config.background);
 
     await this.__openContainers(config);
@@ -144,6 +150,7 @@ export default class TransitionService extends Service {
   }
 
   async sameLevelRTL(configTo, configFrom) {
+    console.log('sameLevelRTL');
     if (configTo.sublevel != configFrom.sublevel) {
       await this.container.leaveNavigation('rtl');
       this.__leaveExperience(configTo, 'rtl');
@@ -169,6 +176,7 @@ export default class TransitionService extends Service {
     }
   }
   async sameLevelLTR(configTo, configFrom) {
+    console.log('sameLevelLTR');
     if (configTo.sublevel != configFrom.sublevel) {
       await this.container.leaveNavigation('ltr');
       this.__leaveExperience(configTo, 'ltr');
@@ -195,6 +203,7 @@ export default class TransitionService extends Service {
   }
 
   async nextLevelRTL(config) {
+    console.log('nextLevelRTL');
     /**
      * Sai buttons
      * Sai experience
@@ -216,6 +225,7 @@ export default class TransitionService extends Service {
     }
   }
   async nextLevelLTR(config) {
+    console.log('nextLevelLTR');
     try {
       await this.container.leaveNavigation('ltr');
       this.__leaveExperience(config, 'ltr');
