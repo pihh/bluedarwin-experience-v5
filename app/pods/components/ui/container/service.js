@@ -3,6 +3,8 @@ import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 
 import wait from '../../../../utils/wait';
+import { BUTTONS_TEAM } from '../../../../constants/buttons-team';
+import { BUTTONS_PRODUCT } from '../../../../constants/buttons-products';
 
 export default class ComponentsUiContainerService extends Service {
   @service transition;
@@ -12,7 +14,7 @@ export default class ComponentsUiContainerService extends Service {
   @tracked pageTitle = '';
   @tracked pageSubtitle = '';
   @tracked pageStroke = '';
-  @tracked pageContent = [];
+  @tracked pageContent = ['x', 'x', 'x'];
 
   @tracked sliding = false;
   __removeAllClasses(visible = true) {
@@ -84,9 +86,9 @@ export default class ComponentsUiContainerService extends Service {
   @tracked asideTitle = '';
   @tracked asideSubtitle = '';
   @tracked asideSections = [
-    [0, 1, 2],
-    [0, 1],
-    [0, 1, 2, 3],
+    ['x', 'x', 'x'],
+    ['x', 'x', 'x'],
+    ['x', 'x', 'x'],
   ];
   @tracked asideSection = 0;
   async nextAsideSection() {
@@ -101,76 +103,52 @@ export default class ComponentsUiContainerService extends Service {
   }
 
   async loadAsideSection(index, isTransition) {
-    if (this.transition.transition) return;
-    if (isTransition) {
+    try {
+      //console.log(111);
+      //if (this.transition.transition) return;
+      //console.log(222);
+      if (isTransition) {
+        this.pageContent = [...[]];
+
+        this.asideSection = index;
+        this.pageContent = [...this.asideSections[this.asideSection]];
+        this.sliding = false;
+
+        return;
+      }
+
+      if (this.sliding) return;
+      this.sliding = true;
+
+      this.experience.experience.eventEmitter.emit('loadAsideSection');
+
+      const direction = index >= this.asideSection ? 'down' : 'up';
+      if (direction == 'up') {
+        await this.slideOutUp();
+      } else {
+        await this.slideOutDown();
+      }
+
       this.asideSection = index;
+
       this.pageContent = [...this.asideSections[this.asideSection]];
+      if (direction == 'up') {
+        await this.slideInUp();
+      } else {
+        await this.slideInDown();
+      }
+
       this.sliding = false;
-      return;
+    } catch (ex) {
+      console.warn(ex);
     }
-    if (this.sliding) return;
-    this.sliding = true;
-
-    this.experience.experience.eventEmitter.emit('loadAsideSection');
-
-    const direction = index >= this.asideSection ? 'down' : 'up';
-    if (direction == 'up') {
-      await this.slideOutUp();
-    } else {
-      await this.slideOutDown();
-    }
-    this.asideSection = index;
-
-    this.pageContent = [...this.asideSections[this.asideSection]];
-    if (direction == 'up') {
-      await this.slideInUp();
-    } else {
-      await this.slideInDown();
-    }
-    this.sliding = false;
   }
 
   // TEAM MENU
   @tracked $teamClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
   @tracked teamLocked = false;
   @tracked teamVisible = false;
-  @tracked teamButtons = [
-    {
-      title: 'carlos',
-      image: '/images/team.carlos-galveias.jpeg',
-      actionName: 'goToCarlos',
-    },
-    {
-      title: 'luis',
-      image: '/images/team.luis-pombo.jpeg',
-      actionName: 'goToLuis',
-    },
-    {
-      title: 'filipe',
-      image: '/images/team.filipe-sa.jpeg',
-      actionName: 'goToFilipe',
-    },
-    {
-      title: 'mike',
-      image: '/images/team.miguel-vasques.jpeg',
-      actionName: 'goToMiguel',
-    },
-    {
-      title: 'favas',
-      image: '/images/team.ricardo-favas.jpeg',
-      actionName: 'goToFavas',
-    },
-    {
-      title: 'rui',
-      image: '/images/team.rui-carvoeiro.jpeg',
-      actionName: 'goToRui',
-    },
-    {
-      title: 'perleques',
-      image: '/images/team.ricardo-perleques.jpeg',
-      actionName: 'goToRicardo',
-    },
-  ];
+  @tracked teamButtons = BUTTONS_TEAM;
 
   async enterTeam() {
     if (this.teamLocked || this.teamVisible) return;
@@ -201,20 +179,7 @@ export default class ComponentsUiContainerService extends Service {
   @tracked $productClassList = 'transition-0 opacity-0 bottom-100 max-height-0';
   @tracked productLocked = false;
   @tracked productVisible = false;
-  @tracked productButtons = [
-    { title: 'chatbot', icon: '/icons/chatbot.svg', actionName: 'goToChatbot' },
-    {
-      title: 'doc intell',
-      icon: '/icons/document-intelligence.svg',
-      actionName: 'goToDocIntel',
-    },
-    { title: 'streams', icon: '/icons/streams.svg', actionName: 'goToStreams' },
-    {
-      title: 'automations',
-      icon: '/icons/automations.svg',
-      actionName: 'goToAutomations',
-    },
-  ];
+  @tracked productButtons = BUTTONS_PRODUCT;
 
   async enterProducts() {
     if (this.productLocked || this.productVisible) return;
@@ -269,9 +234,9 @@ export default class ComponentsUiContainerService extends Service {
   @tracked navigationLocked = false;
   @tracked navigationVisible = true;
   @tracked navigationButtons = [
-    { title: 'products' },
-    { title: 'team' },
-    { title: 'contact' },
+    { title: 'button_products' },
+    { title: 'button_team' },
+    { title: 'button_contact' },
   ];
 
   async enterNavigation(direction = 'ltr', config) {

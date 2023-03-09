@@ -1,7 +1,8 @@
 import Service from '@ember/service';
-import { CONFIG } from './config';
+
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { CONFIG } from '../../constants/containers';
 /**
  * Processo de transição:
  * 1 - Sai menu e navs
@@ -69,7 +70,9 @@ export default class TransitionService extends Service {
   __setAsideContainer(config) {
     try {
       this.container.asideSection = 0;
-      this.container.asideSections = [...config.asideMenu.sections];
+      this.container.asideSections = JSON.parse(
+        JSON.stringify(config.asideMenu.sections)
+      );
       this.container.asideTitle = config.asideMenu.title;
       this.container.asideSubtitle = config.asideMenu.subtitle;
       this.container.pageTitle = config.page.title;

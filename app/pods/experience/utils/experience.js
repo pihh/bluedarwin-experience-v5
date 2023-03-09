@@ -1,6 +1,5 @@
 import { Scene, Vector3 } from 'three';
-
-import assets from '../config/assets';
+import assets from '../../../constants/assets';
 import wait from '../../../utils/wait';
 import EventEmitter from 'events';
 import Camera from './camera';

@@ -15,7 +15,7 @@ export const BUTTONS_TEAM = [
     actionName: 'goToFilipe',
   },
   {
-    title: 'mike',
+    title: 'miguel',
     image: '/images/team.miguel-vasques.jpeg',
     actionName: 'goToMiguel',
   },
