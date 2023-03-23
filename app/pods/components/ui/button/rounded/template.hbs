@@ -1,4 +1,7 @@
+
 <div class="bde__ui-button-rounded">
+
+
   <div class="bde__ui-button-rounded__circle-wrapper" {{action this.onClick}}>
 
     <div class="bde__ui-button-rounded__circle-container">
@@ -13,10 +16,10 @@
     <div class="bde__ui-button-rounded__circle-container">
       <div class="bde__ui-button-rounded__circle">
         {{#if @icon}}
-          <img src={{@icon}} class="bde__ui-button-rounded__circle__icon" onload="SVGInject(this)" />
+        <img src={{@icon}} class="bde__ui-button-rounded__circle__icon" onload="SVGInject(this)" />
         {{/if}}
         {{#if @image}}
-          <img src={{@image}} />
+        <img src={{@image}} />
         {{/if}}
       </div>
     </div>

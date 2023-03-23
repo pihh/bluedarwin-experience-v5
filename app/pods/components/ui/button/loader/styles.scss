@@ -6,6 +6,41 @@ $bde-ui-button-size-hover-opacity-1: 0.75;
 $bde-ui-button-size-hover-opacity-2: 0.5;
 $bde-ui-button-size-duration: 250ms;
 
+
+:root {
+  --dot-diameter: 165px;
+  --circle-border-width: 0.5px;
+  --default-color: transparent;
+  --completion-color: #5858f4;
+}
+
+.circle-container {
+  position: absolute;
+  top: -8px;
+  width: var(--dot-diameter);
+  height: var(--dot-diameter);
+  transform: rotate(-90deg);
+  z-index: 1000000;
+}
+
+.circle-container__background {
+  fill: none;
+  stroke: var(--default-color);
+  stroke-width: var(--circle-border-width);
+}
+
+.circle-container__progress {
+  fill: none;
+  stroke-linecap: round;
+  stroke: var(--completion-color);
+  stroke-dasharray: 100 100;
+  stroke-linecap: round;
+  stroke-width: var(--circle-border-width);
+  // For animations...
+  // transition: stroke-dashoffset 1s ease-in-out;
+  // will-change: transform;
+}
+
 .bde__ui-button-loader {
   color: white;
   width: $bde-ui-button-width;

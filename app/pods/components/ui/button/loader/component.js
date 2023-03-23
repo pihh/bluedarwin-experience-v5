@@ -9,6 +9,7 @@ export default class UiButtonLoaderComponent extends Component {
   @tracked progress = 0;
   @tracked loaded = false;
   @tracked exiting = false;
+  @tracked strokedashOffset = 'stroke-dashoffset: 100';
 
   constructor() {
     super(...arguments);
@@ -16,10 +17,12 @@ export default class UiButtonLoaderComponent extends Component {
 
   onCounterUpdate(progress) {
     this.progress = progress;
+    this.strokedashOffset = 'stroke-dashoffset: '+(100-progress);
+    
     if (progress == 100) {
       this.loaded = true;
 
-      this.onExit();
+      //this.onExit();
     }
   }
 
