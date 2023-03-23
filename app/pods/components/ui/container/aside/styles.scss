@@ -50,12 +50,29 @@
 .bde-theme-light .bde__ui__vertical-aside__counter ul li div span {
   border: 1px solid #ccc;
 }
+
+
+
+.bde-theme-dark .bde__ui__vertical-aside__counter ul li div span.active {
+
+  border: 1px solid #5858f4;
+
+}
+.bde-theme-light .bde__ui__vertical-aside__counter ul li div span.active {
+
+  border: 1px solid red;
+
+}
+
+
 .bde-theme-dark .bde__ui__vertical-aside__counter ul li.active {
-  color: white;
+  // color: #5858f4;
+  font-weight: bold;
 }
 
 .bde-theme-light .bde__ui__vertical-aside__counter ul li.active {
-  color: black;
+  // color: red;
+  font-weight: bold;
 }
 
 .bde__ui__vertical-aside__counter ul li.active > div span {

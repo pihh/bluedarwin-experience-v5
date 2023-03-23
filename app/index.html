@@ -1,50 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>BluedarwinExperienceV5</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    {{content-for "head"}}
-    <!-- Preload fonts -->
+<head>
+  <meta charset="utf-8" />
+  <title>BluedarwinExperienceV5</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link
-      rel="preload"
-      href="/css/Inter (web)/Inter-Regular.woff2"
-      as="style"
-      rel="stylesheet preload prefetch"
-      type="text/css"
-    />
+  {{content-for "head"}}
+  <!-- Preload fonts -->
 
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/vendor.css"
-      rel="preload"
-      as="style"
-    />
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/bluedarwin-experience-v5.css"
-    />
+  <link rel="preload" href="/css/Inter (web)/Inter-Regular.woff2" as="style" rel="stylesheet preload prefetch"
+    type="text/css" />
 
-    {{content-for "head-footer"}}
-  </head>
-  <body style="display: none">
-    {{content-for "body"}}
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" rel="preload" as="style" />
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/bluedarwin-experience-v5.css" />
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/bluedarwin-experience-v5.js"></script>
+  {{content-for "head-footer"}}
 
-    {{content-for "body-footer"}}
-    <script>
-      (function () {
-        setTimeout(() => {
-          document.body.style.display = "inherit";
-        }, 1);
-      })();
-    </script>
-  </body>
+</head>
+
+<body style="display: none">
+  {{content-for "body"}}
+
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/bluedarwin-experience-v5.js"></script>
+
+  {{content-for "body-footer"}}
+  <script>
+    (function () {
+      setTimeout(() => {
+        document.body.style.display = "inherit";
+      }, 1);
+    })();
+  </script>
+  <script src="/scripts/svg-inject.js"></script>
+</body>
+
 </html>

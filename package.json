@@ -78,6 +78,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@iconfu/svg-inject": "^1.2.3",
     "dat.gui": "^0.7.9",
     "glslify": "^6.2.1",
     "glslify-import-loader": "^0.1.2",

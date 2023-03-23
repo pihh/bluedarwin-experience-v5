@@ -17,9 +17,10 @@
           class="{{if (eq this.container.asideSection index) 'active' ''}}
             {{if this.container.sliding '' 'pointer'}}"
           {{action this.onClick index}}
+          data-cursor-text="{{double-place-number index}}"
         >
           <div>
-            <span></span>
+            <span  class="{{if (eq this.container.asideSection index) 'active' ''}}"></span>
           </div>
           {{double-place-number index}}
         </li>
