@@ -104,14 +104,14 @@ $bde-ui-button-size-duration: 250ms;
   display: flex;
 }
 
-.bde__ui-button-loader__circle-wrapper.loaded:hover
+.bde__ui-button-loader__circle-wrapper.loaded
   > div:nth-child(1)
   .bde__ui-button-loader__circle {
   max-height: $bde-ui-button-size-hover-size-1;
   max-width: $bde-ui-button-size-hover-size-1;
   opacity: $bde-ui-button-size-hover-opacity-1;
 }
-.bde__ui-button-loader__circle-wrapper.loaded:hover
+.bde__ui-button-loader__circle-wrapper.loaded
   > div:nth-child(2)
   .bde__ui-button-loader__circle {
   max-height: $bde-ui-button-size-hover-size-2;

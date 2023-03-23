@@ -84,6 +84,7 @@
     "glslify-import-loader": "^0.1.2",
     "glslify-loader": "^1.0.2",
     "imports-loader": "^0.8.0",
-    "mouse-follower": "^1.1.2"
+    "mouse-follower": "^1.1.2",
+    "postprocessing": "^6.24.1"
   }
 }

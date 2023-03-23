@@ -14,6 +14,7 @@ import gsap from 'gsap';
 import wait from '../../../utils/wait';
 import { CONFIG } from '../../../constants/containers';
 import { ShadowPlane } from './shadow-plane';
+import { ReflectionPlane } from './reflection-plane';
 export class BluedarwinExperienceCard {
   TEXTURES = [
     'chatbotIntro',
@@ -38,15 +39,19 @@ export class BluedarwinExperienceCard {
 
   constructor() {}
 
-  create(name) {
+  create(name, config={}) {
     this.__initModel(name);
     this.__initShadows();
+    if(config.reflections){
+
+      this.__initReflections();
+    }
     this.__initLights();
     this.__initEvents();
   }
 
   __initModel(name, textures = []) {
-    console.log(name, CONFIG[name]);
+    
     this.TEXTURES = CONFIG[name].assets;
     for (let textureName of this.TEXTURES) {
       const texture = this.experience.resources.items[textureName];
@@ -119,26 +124,11 @@ export class BluedarwinExperienceCard {
   }
 
   __initShadows() {
-    // if (!this.shadow) {
-    //   const planeGeometry = new PlaneGeometry(8000, 8000);
-    //   const planeMaterial = new ShadowMaterial({
-    //     color: 0x000000,
-    //     opacity: 0.1, // 0.2
-    //   });
-
-    //   planeGeometry.rotateX(-Math.PI / 2);
-
-    //   this.shadow = new Mesh(planeGeometry, planeMaterial);
-    //   this.shadow.position.y = this.object.position.y - 1;
-    //   this.shadow.receiveShadow = true;
-    //   this.shadow.name = 'shadow';
-    // }
-    // if (!this.object.hasShadow) {
-    //   this.object.hasShadow = true;
-
-    //   this.object.children.push(this.shadow);
-    // }
     ShadowPlane(this)
+  }
+
+  __initReflections(){
+    ReflectionPlane(this)
   }
 
   __initLights() {
@@ -165,7 +155,7 @@ export class BluedarwinExperienceCard {
   __initEvents() {
     this.experience.eventEmitter.on('loadAsideSection', (id) => {
       if (!this.object.visible) return;
-      console.log(id);
+      
       this.glitch(id);
     });
   }
@@ -184,12 +174,20 @@ export class BluedarwinExperienceCard {
   glitching = false;
   async glitch(id) {
     if (this.glitching) return;
+
     this.glitching = true;
     await wait(150);
     const originalRotation = this.OBJECT_CONFIGURATION.rotation.y;
-    gsap.to(this.object.rotation, {
-      y: originalRotation + Math.PI * 2,
-    });
+    if(id > this.textureIdx){
+      gsap.to(this.object.rotation, {
+        y: originalRotation + Math.PI * 2,
+      });
+    }else{
+      gsap.to(this.object.rotation, {
+        y: originalRotation - Math.PI * 2,
+      });
+    }
+
     await wait(200);
     this.setTexture(id);
     await wait(800);
@@ -204,7 +202,7 @@ export class BluedarwinExperienceCard {
   }
 
   async enter() {
-    console.log('enter');
+    
     this.setTexture(0);
     this.object.visible = false;
     await this.experience.transitionLeft();
@@ -212,7 +210,7 @@ export class BluedarwinExperienceCard {
   }
 
   async leave() {
-    console.log('leave');
+   
     this.object.visible = true;
 
     this.experience.transitionRight();

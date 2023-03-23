@@ -23,7 +23,7 @@ export default class UiButtonLoaderComponent extends Component {
     if (progress == 100) {
       this.loaded = true;
 
-      this.onExit();
+      //this.onExit();
     }
   }
 

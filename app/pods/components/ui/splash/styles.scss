@@ -12,6 +12,7 @@
   background: black;
   color: white;
 }
+
 .bde__ui-splash.opacity-0 {
   opacity: 0;
   filter: blur(4px);
@@ -20,20 +21,24 @@
 .bde__ui-splash.scale-90 {
   transform: scale(0.95);
 }
+
 .bde__ui-splash__loader {
   display: flex;
   justify-content: center;
   position: relative;
 }
+
 .bde__ui-splash__text {
   text-align: center;
   margin-bottom: 4em;
 }
+
 .bde-page-subtitle,
 .bde-page-title,
 .bde-page-powered {
   transition: all 1s ease-out;
 }
+
 /*
 .bde__ui-splash.opacity-0 .bde-page-subtitle {
   transform: translateX(-150px);
@@ -48,3 +53,95 @@
   opacity: 0;
 }
 */
+
+
+.preloader_text_reel {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: "Inter", "system-ui";
+  color: transparent;
+  -webkit-text-stroke-color: #5d5d5d;
+  -webkit-text-stroke-width: 0.2mm;
+  transform: scale(1.6) rotate(18deg);
+  -webkit-transform: scale(1.6) rotate(18deg);
+  -moz-transform: scale(1.6) rotate(18deg);
+  -ms-transform: scale(1.6) rotate(18deg);
+  -o-transform: scale(1.6) rotate(18deg);
+}
+
+.infiniteslide_wrap {
+  line-height: 1;
+  overflow: hidden;
+}
+
+.text_reel.left_reel {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  animation: 26.4599s linear 0s infinite normal none running infiniteslideback;
+}
+
+.text_reel span {
+  font-size: 12rem;
+  margin-right: 4rem;
+}
+
+.main_i_en {
+  flex: 0 0 auto; display: block;
+}
+
+.main_en,
+.main_i_en {
+  font-weight: 400;
+  word-wrap: break-word;
+  letter-spacing: -.01rem;
+}
+
+.main_i_en.infiniteslide_clone {
+  flex: 0 0 auto;
+  display: block;
+}
+
+.text_reel span {
+  font-size: 12rem;
+  margin-right: 4rem;
+}
+
+.main_i_en {}
+
+.main_en,
+.main_i_en {
+  font-weight: 400;
+  word-wrap: break-word;
+  letter-spacing: -.01rem;
+}
+
+.text_reel.right_reel {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  animation: 26.4599s linear 0s infinite reverse none running infiniteslidefront;
+}
+
+@keyframes infiniteslideback {
+
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-2645.9925px, 0, 0);
+  }
+}
+
+@keyframes infiniteslidefront {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-2645.9925px, 0, 0);
+  }
+}
