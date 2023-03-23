@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
+import { htmlSafe } from '@ember/template';
 
 export default class UiButtonLoaderComponent extends Component {
   @service experience;
@@ -9,7 +10,7 @@ export default class UiButtonLoaderComponent extends Component {
   @tracked progress = 0;
   @tracked loaded = false;
   @tracked exiting = false;
-  @tracked strokedashOffset = 'stroke-dashoffset: 100';
+  @tracked strokedashOffset = htmlSafe('stroke-dashoffset: 100');
 
   constructor() {
     super(...arguments);
@@ -17,12 +18,12 @@ export default class UiButtonLoaderComponent extends Component {
 
   onCounterUpdate(progress) {
     this.progress = progress;
-    this.strokedashOffset = 'stroke-dashoffset: '+(100-progress);
+    this.strokedashOffset = htmlSafe('stroke-dashoffset: '+(100-progress));
     
     if (progress == 100) {
       this.loaded = true;
 
-      //this.onExit();
+      this.onExit();
     }
   }
 

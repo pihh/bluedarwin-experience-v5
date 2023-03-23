@@ -13,6 +13,7 @@ import {
 import gsap from 'gsap';
 import wait from '../../../utils/wait';
 import { CONFIG } from '../../../constants/containers';
+import { ShadowPlane } from './shadow-plane';
 export class BluedarwinExperienceCard {
   TEXTURES = [
     'chatbotIntro',
@@ -118,25 +119,26 @@ export class BluedarwinExperienceCard {
   }
 
   __initShadows() {
-    if (!this.shadow) {
-      const planeGeometry = new PlaneGeometry(8000, 8000);
-      const planeMaterial = new ShadowMaterial({
-        color: 0x000000,
-        opacity: 0.025, // 0.2
-      });
+    // if (!this.shadow) {
+    //   const planeGeometry = new PlaneGeometry(8000, 8000);
+    //   const planeMaterial = new ShadowMaterial({
+    //     color: 0x000000,
+    //     opacity: 0.1, // 0.2
+    //   });
 
-      planeGeometry.rotateX(-Math.PI / 2);
+    //   planeGeometry.rotateX(-Math.PI / 2);
 
-      this.shadow = new Mesh(planeGeometry, planeMaterial);
-      this.shadow.position.y = this.object.position.y - 1;
-      this.shadow.receiveShadow = true;
-      this.shadow.name = 'shadow';
-    }
-    if (!this.object.hasShadow) {
-      this.object.hasShadow = true;
+    //   this.shadow = new Mesh(planeGeometry, planeMaterial);
+    //   this.shadow.position.y = this.object.position.y - 1;
+    //   this.shadow.receiveShadow = true;
+    //   this.shadow.name = 'shadow';
+    // }
+    // if (!this.object.hasShadow) {
+    //   this.object.hasShadow = true;
 
-      this.object.children.push(this.shadow);
-    }
+    //   this.object.children.push(this.shadow);
+    // }
+    ShadowPlane(this)
   }
 
   __initLights() {
