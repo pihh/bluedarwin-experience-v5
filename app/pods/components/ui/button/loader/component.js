@@ -22,7 +22,7 @@ export default class UiButtonLoaderComponent extends Component {
     
     if (progress == 100) {
       this.loaded = true;
-
+      this.onReady();
       //this.onExit();
     }
   }
@@ -70,5 +70,9 @@ export default class UiButtonLoaderComponent extends Component {
     if (this.exiting || !this.loaded) return;
     this.exiting = true;
     this.args.onExit();
+  }
+
+  @action async onReady() {
+    this.args.onReady();
   }
 }
