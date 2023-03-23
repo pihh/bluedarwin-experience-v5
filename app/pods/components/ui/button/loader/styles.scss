@@ -48,6 +48,7 @@ $bde-ui-button-size-duration: 250ms;
   opacity: 1;
   transition: all $bde-ui-button-size-duration ease-in-out;
   color: white;
+  text-transform: uppercase;
 }
 
 .bde__ui-button-loader__circle-wrapper
