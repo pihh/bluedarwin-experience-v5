@@ -8,9 +8,12 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  transition: all 2s ease-out;
   background: black;
   color: white;
+}
+
+.bde__ui-splash.bde__transition-ready {
+  transition: all 2s ease-out;
 }
 
 .bde__ui-splash.opacity-0 {
@@ -54,19 +57,19 @@
 }
 */
 
-.bde__ui-splash__text-container{
+.bde__ui-splash__text-container {
   transition: all 400ms ease-in-out;
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
-  left:0;
-  z-index:-1;
+  left: 0;
+  z-index: -1;
 }
 
-.bde__ui-splash__text-container.opacity-1{
+.bde__ui-splash__text-container.opacity-1 {
   opacity: 1;
 }
-.bde__ui-splash__text-container.opacity-0{
+.bde__ui-splash__text-container.opacity-0 {
   opacity: 0;
 }

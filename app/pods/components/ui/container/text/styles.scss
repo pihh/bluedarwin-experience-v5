@@ -1,99 +1,99 @@
+.bde__text-slider__container {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: "Inter", "system-ui";
+  color: transparent;
+  -webkit-text-stroke-color: #5d5d5d;
+  -webkit-text-stroke-width: 0.2mm;
+  transform: scale(1.6) rotate(18deg);
+  -webkit-transform: scale(1.6) rotate(18deg);
+  -moz-transform: scale(1.6) rotate(18deg);
+  -ms-transform: scale(1.6) rotate(18deg);
+  -o-transform: scale(1.6) rotate(18deg);
+}
 
-.preloader_text_reel {
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-family: "Inter", "system-ui";
-    color: transparent;
-    -webkit-text-stroke-color: #5d5d5d;
-    -webkit-text-stroke-width: 0.2mm;
-    transform: scale(1.6) rotate(18deg);
-    -webkit-transform: scale(1.6) rotate(18deg);
-    -moz-transform: scale(1.6) rotate(18deg);
-    -ms-transform: scale(1.6) rotate(18deg);
-    -o-transform: scale(1.6) rotate(18deg);
+.bde__text-slider__container.reverse-incline {
+  transform: scale(1.6) rotate(-18deg);
+  -webkit-transform: scale(1.6) rotate(-18deg);
+  -moz-transform: scale(1.6) rotate(-18deg);
+  -ms-transform: scale(1.6) rotate(-18deg);
+  -o-transform: scale(1.6) rotate(-18deg);
+}
+
+.bde__infinite-text-slider__wrapper {
+  line-height: 1;
+  overflow: hidden;
+}
+
+.bde__infinite-text-slider__reel.bde__infinite-text-slider__reel__left {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  animation: 26.4599s linear 0s infinite normal none running infiniteslideback;
+}
+
+.bde__infinite-text-slider__reel span {
+  font-size: 12rem;
+  margin-right: 4rem;
+}
+
+.bde__infinite-text-slider__main {
+  flex: 0 0 auto;
+  display: block;
+}
+
+.main_en,
+.bde__infinite-text-slider__main {
+  font-weight: 400;
+  word-wrap: break-word;
+  letter-spacing: -0.01rem;
+}
+
+.bde__infinite-text-slider__main.bde__infinite-text-slider__clone {
+  flex: 0 0 auto;
+  display: block;
+}
+
+.bde__infinite-text-slider__reel span {
+  font-size: 12rem;
+  margin-right: 4rem;
+}
+
+.bde__infinite-text-slider__main {
+}
+
+.main_en,
+.bde__infinite-text-slider__main {
+  font-weight: 400;
+  word-wrap: break-word;
+  letter-spacing: -0.01rem;
+}
+
+.bde__infinite-text-slider__reel.bde__infinite-text-slider__reel__right {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  animation: 26.4599s linear 0s infinite reverse none running infiniteslidefront;
+}
+
+@keyframes infiniteslideback {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
 
-  .preloader_text_reel.reverse-incline{
-    transform: scale(1.6) rotate(-18deg);
-    -webkit-transform: scale(1.6) rotate(-18deg);
-    -moz-transform: scale(1.6) rotate(-18deg);
-    -ms-transform: scale(1.6) rotate(-18deg);
-    -o-transform: scale(1.6) rotate(-18deg);
+  100% {
+    transform: translate3d(-2645.9925px, 0, 0);
   }
-  
-  .infiniteslide_wrap {
-    line-height: 1;
-    overflow: hidden;
+}
+
+@keyframes infiniteslidefront {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-  
-  .text_reel.left_reel {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    animation: 26.4599s linear 0s infinite normal none running infiniteslideback;
+
+  100% {
+    transform: translate3d(-2645.9925px, 0, 0);
   }
-  
-  .text_reel span {
-    font-size: 12rem;
-    margin-right: 4rem;
-  }
-  
-  .main_i_en {
-    flex: 0 0 auto; display: block;
-  }
-  
-  .main_en,
-  .main_i_en {
-    font-weight: 400;
-    word-wrap: break-word;
-    letter-spacing: -.01rem;
-  }
-  
-  .main_i_en.infiniteslide_clone {
-    flex: 0 0 auto;
-    display: block;
-  }
-  
-  .text_reel span {
-    font-size: 12rem;
-    margin-right: 4rem;
-  }
-  
-  .main_i_en {}
-  
-  .main_en,
-  .main_i_en {
-    font-weight: 400;
-    word-wrap: break-word;
-    letter-spacing: -.01rem;
-  }
-  
-  .text_reel.right_reel {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    animation: 26.4599s linear 0s infinite reverse none running infiniteslidefront;
-  }
-  
-  @keyframes infiniteslideback {
-  
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-  
-    100% {
-      transform: translate3d(-2645.9925px, 0, 0);
-    }
-  }
-  
-  @keyframes infiniteslidefront {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-  
-    100% {
-      transform: translate3d(-2645.9925px, 0, 0);
-    }
-  }
+}
