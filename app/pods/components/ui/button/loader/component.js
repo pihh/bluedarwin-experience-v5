@@ -4,6 +4,8 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { htmlSafe } from '@ember/template';
 
+import lerp from '../../../../../utils/lerp';
+
 export default class UiButtonLoaderComponent extends Component {
   @service experience;
   @tracked dots = '.';
@@ -18,12 +20,12 @@ export default class UiButtonLoaderComponent extends Component {
 
   onCounterUpdate(progress) {
     this.progress = progress;
-    this.strokedashOffset = htmlSafe('stroke-dashoffset: '+(100-progress));
-    
+    this.strokedashOffset = htmlSafe('stroke-dashoffset: ' + (100 - progress));
+
     if (progress == 100) {
       this.loaded = true;
       this.onReady();
-      //this.onExit();
+      this.onExit();
     }
   }
 
@@ -32,7 +34,11 @@ export default class UiButtonLoaderComponent extends Component {
     if (this.progress < this.target) {
       clearTimeout(this.targetUpdateTimeout);
       this.targetUpdateTimeout = setTimeout(() => {
-        this.progress++;
+        this.progress = lerp(this.progress, this.target);
+        this.progress = Math.round(this.progress * 100) / 100;
+        if (this.target == 100 && this.progress > 99.5) {
+          this.progress = 100;
+        }
         this.onCounterUpdate(this.progress);
         this.onTargetUpdate();
       }, 2);

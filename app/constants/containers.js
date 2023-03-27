@@ -4,7 +4,7 @@ export const CONFIG = {
     sublevel: 0,
     background: 'dark',
     containers: {
-      products: true,
+      products: false,
       team: false,
       scroll: true,
     },
@@ -38,7 +38,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: true,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'button_back', action: 'goToJourney' },
@@ -67,7 +67,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: true,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'button_back', action: 'goToJourney' },
@@ -96,7 +96,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: true,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'button_back', action: 'goToJourney' },
@@ -125,7 +125,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: true,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'button_back', action: 'goToJourney' },
@@ -154,7 +154,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: true,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'button_back', action: 'goToJourney' },
@@ -183,7 +183,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: true,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'button_back', action: 'goToJourney' },
@@ -212,7 +212,7 @@ export const CONFIG = {
     containers: {
       products: false,
       team: true,
-      scroll: false,
+      scroll: true,
     },
     navigationButtons: [
       { title: 'button_back', action: 'goToJourney' },

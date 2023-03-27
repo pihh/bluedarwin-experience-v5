@@ -6,7 +6,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.bde__ui-container-footer.opacity-100 {
+  z-index: 1;
+}
 .bde__ui-container-footer.transition-0 .bde__ui-button-rounded {
   transition: all 0s;
   transition-delay: 0s;

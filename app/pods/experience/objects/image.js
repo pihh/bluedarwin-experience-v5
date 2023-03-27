@@ -24,7 +24,8 @@ export class BluedarwinExperienceImage {
   }
 
   __initModel(name, textureName) {
-    this.geometry = new PlaneGeometry(1, 1, 512, 512);
+    // this.geometry = new PlaneGeometry(1, 1, 512, 512);
+    this.geometry = new PlaneGeometry(1, 1, 51, 51);
     /*
     console.log({ geometry });
     // add an attribute
@@ -72,9 +73,9 @@ export class BluedarwinExperienceImage {
   __initLights() {}
   __initShadows() {}
   __initEvents() {
-    this.experience.eventEmitter.on('loadAsideSection', () => {
-      this.glitch();
-    });
+    // this.experience.eventEmitter.on('loadAsideSection', () => {
+    //   this.glitch();
+    // });
   }
   setObjectX() {
     const $width = this.experience.sizes.width;
@@ -94,7 +95,7 @@ export class BluedarwinExperienceImage {
   target = 1000;
   current = 0;
   render() {
-    this.material.uniforms.time.value = this.experience.time.elapsed;
+    // this.material.uniforms.time.value = this.experience.time.elapsed;
   }
 
   // __getDistortion(distortion, duration) {
@@ -159,12 +160,12 @@ export class BluedarwinExperienceImage {
     this.object.visible = false;
     //this.experience.transitionLeft();
     await wait(2000);
-    this.object.visible = true;
-    this.implode();
+    //this.object.visible = true;
+    // this.implode();
   }
   async leave() {
-    this.object.visible = true;
-    this.explode();
+    //this.object.visible = true;
+    // this.explode();
     //this.experience.transitionRight();
     await wait(1000);
     this.object.visible = false;

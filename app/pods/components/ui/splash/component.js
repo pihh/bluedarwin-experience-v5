@@ -7,6 +7,7 @@ export default class UiSplashComponent extends Component {
   @tracked className = '';
   @tracked text = 'LOADING';
   @tracked textClassName = 'opacity-1';
+  @tracked isDestroyed = false;
 
   @action async onReady() {
     if (this.loaded) return;
@@ -23,5 +24,7 @@ export default class UiSplashComponent extends Component {
     this.className = 'bde__transition-ready opacity-0 scale-95';
     await wait(2000);
     this.className = 'pixel';
+    await wait(100);
+    this.isDestroyed = true;
   }
 }

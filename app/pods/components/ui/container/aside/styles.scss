@@ -3,7 +3,7 @@
   right: 2em;
   top: 0;
   transform: rotate(180deg);
-  z-index: 1;
+  z-index: 2;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   height: 100vh;
@@ -17,7 +17,7 @@
   left: 0;
   left: -2px;
   font-size: small;
-  z-index: 1;
+  z-index: 2;
 
   //transition: translate 400ms ease-out;
   //transform: translateX(0);
@@ -51,19 +51,12 @@
   border: 1px solid #ccc;
 }
 
-
-
 .bde-theme-dark .bde__ui__vertical-aside__counter ul li div span.active {
-
   border: 1px solid #5858f4;
-
 }
 .bde-theme-light .bde__ui__vertical-aside__counter ul li div span.active {
-
   border: 1px solid red;
-
 }
-
 
 .bde-theme-dark .bde__ui__vertical-aside__counter ul li.active {
   // color: #5858f4;
@@ -91,4 +84,20 @@
 #bde-main.transitioning .bde__ui__vertical-aside__right,
 #bde-main.transitioning .bde__ui__vertical-aside__left {
   transform: translateX(-10em);
+}
+
+.bde__ui__vertical-aside::before,
+.bde__ui__vertical-aside::after {
+  display: inline-block;
+  content: "";
+  border-left: 1px solid white;
+  height: 20vh;
+  margin: 22px 1rem;
+  transform: translateY(-1rem);
+  writing-mode: vertical-rl;
+}
+
+.bde-theme-light .bde__ui__vertical-aside::before,
+.bde-theme-light .bde__ui__vertical-aside::after {
+  border-left: 1px solid #ccc;
 }

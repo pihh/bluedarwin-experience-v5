@@ -4,6 +4,6 @@ export default class TeamCarlosGalveiasRoute extends Route {
   @service transition;
 
   async beforeModel(transition) {
-    this.transition.start(transition);
+    await this.transition.start(transition);
   }
 }

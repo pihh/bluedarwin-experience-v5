@@ -195,4 +195,40 @@ export default [
     type: 'imageTexture',
     path: '/images/team.ricardo-perleques.jpeg',
   },
+  {
+    name: 'cardTemplate',
+    type: 'imageTexture',
+    path: '/images/cardtemplate3.png',
+  },
+
+  {
+    name: 'cardTemplateBack',
+    type: 'imageTexture',
+    path: '/images/cardtemplateback4.png',
+  },
+  {
+    name: 'flower',
+    type: 'imageTexture',
+    path: '/images/flower3.png',
+  },
+  {
+    name: 'noise2',
+    type: 'imageTexture',
+    path: '/images/noise2.png',
+  },
+  {
+    name: 'rgbnoise2',
+    type: 'imageTexture',
+    path: '/images/rgbnoise2.png',
+  },
+  {
+    name: 'color11',
+    type: 'imageTexture',
+    path: '/images/color11.png',
+  },
+  {
+    name: 'color3',
+    type: 'imageTexture',
+    path: '/images/color3.jpg',
+  },
 ];
