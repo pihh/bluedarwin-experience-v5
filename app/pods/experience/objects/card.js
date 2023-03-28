@@ -39,11 +39,10 @@ export class BluedarwinExperienceCard {
 
   constructor() {}
 
-  create(name, config={}) {
+  create(name, config = {}) {
     this.__initModel(name);
     this.__initShadows();
-    if(config.reflections){
-
+    if (config.reflections) {
       this.__initReflections();
     }
     this.__initLights();
@@ -51,7 +50,6 @@ export class BluedarwinExperienceCard {
   }
 
   __initModel(name, textures = []) {
-    
     this.TEXTURES = CONFIG[name].assets;
     for (let textureName of this.TEXTURES) {
       const texture = this.experience.resources.items[textureName];
@@ -124,11 +122,11 @@ export class BluedarwinExperienceCard {
   }
 
   __initShadows() {
-    ShadowPlane(this)
+    ShadowPlane(this);
   }
 
-  __initReflections(){
-    ReflectionPlane(this)
+  __initReflections() {
+    ReflectionPlane(this);
   }
 
   __initLights() {
@@ -155,7 +153,7 @@ export class BluedarwinExperienceCard {
   __initEvents() {
     this.experience.eventEmitter.on('loadAsideSection', (id) => {
       if (!this.object.visible) return;
-      
+
       this.glitch(id);
     });
   }
@@ -178,11 +176,11 @@ export class BluedarwinExperienceCard {
     this.glitching = true;
     await wait(150);
     const originalRotation = this.OBJECT_CONFIGURATION.rotation.y;
-    if(id > this.textureIdx){
+    if (id > this.textureIdx) {
       gsap.to(this.object.rotation, {
         y: originalRotation + Math.PI * 2,
       });
-    }else{
+    } else {
       gsap.to(this.object.rotation, {
         y: originalRotation - Math.PI * 2,
       });
@@ -202,7 +200,6 @@ export class BluedarwinExperienceCard {
   }
 
   async enter() {
-    
     this.setTexture(0);
     this.object.visible = false;
     await this.experience.transitionLeft();
@@ -210,7 +207,6 @@ export class BluedarwinExperienceCard {
   }
 
   async leave() {
-   
     this.object.visible = true;
 
     this.experience.transitionRight();

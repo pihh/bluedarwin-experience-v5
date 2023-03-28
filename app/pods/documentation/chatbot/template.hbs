@@ -1,2 +1,633 @@
-{{page-title "Chatbot"}}
-{{outlet}}
+{{page-title "Chatbot Documentation"}}
+<div class="bde__documentation" {{did-insert this.didInsert}}>
+
+  <nav
+    class="navbar navbar-light bg-light"
+    style="background: transparent !important ; background-color: transparent"
+  >
+    <span class="navbar-brand">
+      <img
+        src="https://dev.ibm-saip.com/img/icons/icon-72x72.png"
+        width="30"
+        height="30"
+        alt=""
+      />
+      <span class="title">&nbsp; Cognus Chatbot Docs</span>
+    </span>
+  </nav>
+  <div class="row">
+    <div class="col-2" id="body-side-menu">
+      <div class="breathe"></div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item title" disabled href="#introduction">
+          <a href="#introduction">Introduction</a>
+        </li>
+        <li class="list-group-item">&nbsp;</li>
+
+        <li class="list-group-item title" disabled>
+          <a href="#getting-started">
+
+            Getting Started
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="#installation">Installation</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#basics">Basics</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#start-iframe">Chatbot Iframe</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#start-api">Chatbot Api</a>
+        </li>
+        <li class="list-group-item">&nbsp;</li>
+
+        <li class="list-group-item title" disabled>
+          <a href="#rest-api"> Rest Api</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#api-get-meta-data">Get Metadata</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#api-get-conversation">Get Conversation</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#api-send-text-message">Send Text Message</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#api-send-postback">Send PostBack</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#api-send-voice-message">Send Voice Message</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#api-start-conversation">Start Conversation</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#api-reset-conversation">Reset Conversation</a>
+        </li>
+        <li class="list-group-item">&nbsp;</li>
+
+        <li class="list-group-item title" disabled>
+          <a href="#start-iframe">Iframe</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#iframe-list-default-styles">List Default Styles</a>
+        </li>
+        <li class="list-group-item">
+          <a href="#iframe-get-iframe-element">Get Iframe Element</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6" id="body-main">
+      <div class="breathe"></div>
+      <h1 id="introduction">Cognus Chatbot</h1>
+      <p>
+        {{! intro text }}
+        Cognitive chatbot by SoftINSA, a IBM company.<br /><br />
+        Cognus Chatbot is powered by AI to make a easier and more eficient
+        conversation with your clients.<br />
+        This chatbot lib comes with our official template built in but you it
+        also gives you the possibility to comunicate with our Rest Api and use
+        your own template.<br /><br />
+        We like to ear your opinion, so feel free to send us feedback or ask us
+        for new features.<br /><br />
+      </p>
+
+      <h1 id="getting-started">Getting Started</h1>
+      <p>
+        In order to get started you will need a project created in our
+        backoffice and a api key.
+        <br />
+        Feel free to contact us to get those.<br /><br />
+      </p>
+
+      <h5 name="installation" id="installation">Installation</h5>
+      <div class="pre">
+        You can either download the file ( TODO : will add a download button ),
+        clone the repository or via npm install<br /><br />
+        <div class="hilight">
+          {{! prettier-ignore }}
+          <pre><code class="text-pink">$ npm install --save git+https://eu-de.git.cloud.ibm.com/bluedarwin-team/libs/bluedarwin-vanilla-js.git</code></pre>
+          <div>&nbsp; &nbsp; OR<br /><br /></div>
+          {{! prettier-ignore }}
+          <pre><code class="text-pink">$ git clone git+https://eu-de.git.cloud.ibm.com/bluedarwin-team/libs/bluedarwin-vanilla-js.git</code></pre>
+        </div>
+      </div>
+
+      <h5 name="basics" id="basics">Basics</h5>
+      <div class="pre">
+        The chatbot system can be configurated upon initialization and has a
+        event based communication system.<br />
+        Meaning that the developer can capture and handle events that happen
+        during the conversation lifecycle.<br />
+        The Rest Api communication is also promise based, so you can either
+        listen to events to develop your application our you can use Async/await
+        based or promises to write your logic.<br /><br />
+      </div>
+
+      <h5 name="start-iframe" id="start-iframe">New Chatbot Iframe</h5>
+      <div class="pre">
+        The Iframe client is very simple to use.<br />
+        Just add your credentials and create a new instance of the object<br
+        /><br />
+        To install the chatbot package just run the following command.<br /><br
+        />
+
+        <h6>Properties</h6>
+        <br />
+        <div class="container properties">
+          <div class="row properties-header">
+            <div class="col-sm-12">
+              Initialization Parameters
+            </div>
+          </div>
+          <div class="row properties-body">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Channel Token
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              The channel token associated with this conversation.
+            </div>
+          </div>
+          <div class="row properties-body">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Api key
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              The api key generated at our backoffice.
+            </div>
+          </div>
+          <div class="row properties-body">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Module
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              Conversation module id.
+            </div>
+          </div>
+          <div class="row properties-body properties-bottom">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Config
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              Todo: Add description
+            </div>
+          </div>
+        </div>
+        <br /><br />
+
+        <div class="hilight">
+          {{! prettier-ignore }}
+          <pre><code class="javascript">&lt;!-- Add the script to the html page --&gt;
+&lt;script src=&quot;builds/index.js&quot;&gt;&lt;/script&gt;
+            </code></pre>
+          {{! prettier-ignore }}
+          <pre><code class="javascript">// or import the chatbot 
+import CognusChatbot from 'CognusChatbot/build' 
+
+// set your credentials
+let CHANNEL_TOKEN ='YOUR_TOKEN'; 
+let API_KEY ='YOUR_API_KEY'; 
+let CONFIG = {}; 
+
+// boot your Iframe 
+let iframe = new CognusChatbot.Iframe(CHANNEL_TOKEN,API_KEY, CONFIG);
+iframe.render();
+            </code></pre>
+          <div class="text-right">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              onclick={{action "bootIframe"}}
+            >
+              Try Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h5 name="start-api" id="rest-api">New Rest Api Chatbot</h5>
+      <div class="pre">
+        The Iframe Api is also very simple to use and is instanciated the same
+        way as the iframe.<br />
+        Just add your credentials and create a new instance of the object<br
+        /><br />
+        To install the chatbot package just run the following command.<br /><br
+        />
+
+        <h6>Properties</h6>
+        <br />
+        <div class="container properties">
+          <div class="row properties-header">
+            <div class="col-sm-12">
+              Initialization Parameters
+            </div>
+          </div>
+          <div class="row properties-body">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Channel Token
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              The channel token associated with this conversation.
+            </div>
+          </div>
+          <div class="row properties-body">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Api key
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              The api key generated at our backoffice.
+            </div>
+          </div>
+          <div class="row properties-body">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Module
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              Conversation module id.
+            </div>
+          </div>
+          <div class="row properties-body properties-bottom">
+            <div
+              class="col-sm-3 properties-title justify-content-center align-self-center"
+            >
+              Config
+            </div>
+            <div
+              class="col-sm-9 properties-description justify-content-center align-self-center"
+            >
+              Todo: Add description
+            </div>
+          </div>
+        </div>
+        <br /><br />
+        <div class="hilight">
+          {{! prettier-ignore }}
+          <pre><code class="html">&lt;!-- Add the script to the html page --&gt;
+&lt;script src=&quot;builds/index.js&quot;&gt;&lt;/script&gt;
+            </code></pre>
+
+          {{! prettier-ignore }}
+          <pre>
+            <code class="javascript">//or import the chatbot 
+import CognusChatbot from 'CognusChatbot/build';
+
+// set your credentials 
+let CHANNEL_TOKEN ='YOUR_TOKEN'; 
+let API_KEY ='YOUR_API_KEY'; 
+let CONFIG = {} 
+
+// boot your Api 
+let api = new CognusChatbot.Api(CHANNEL_TOKEN, API_KEY, CONFIG);
+api.events.on('api:ready', function() { 
+    console.log('Api ready');
+}); 
+
+api.boot().then(function(data) { 
+    console.log('Boot', data);
+});
+            </code></pre>
+          <div class="text-right">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              onclick={{action "bootApi"}}
+            >
+              Try Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="breathe"></div>
+      <h1>Rest Api</h1>
+      <p>
+        {{! Rest Api Stuff }}
+        The rest api based system is intended for developers who want to
+        implement our chatbot but use their own front end template.<br />
+        To check the results of the tests please open the console.<br />
+        Our rest api client async methods can either be used with a promise
+        based or event based system.<br />
+      </p>
+
+      <h5 name="api-get-meta-data" id="api-get-meta-data">Get Meta Data</h5>
+      <div class="pre">
+        Gets all the meta data<br />
+        <b>Type:</b>Sync
+        <br /><br />
+        <div class="hilight">
+          {{! prettier-ignore }}
+          <pre><code class="javascript">// get metadata
+data api.getMeta()
+            </code></pre>
+          <div class="text-right">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              onclick={{action "getMeta"}}
+            >
+              Try Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h5 name="api-get-conversation" id="api-get-conversation">Get Conversation</h5>
+      <div class="pre">
+        Gets the conversation history as JSON<br />
+        <b>Type:</b>Sync
+        <br /><br />
+        <div class="hilight">
+          {{! prettier-ignore }}
+          <pre><code class="javascript">// Get full conversation
+api.getConversation()
+
+            </code></pre>
+          <div class="text-right">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              onclick={{action "getConversation"}}
+            >
+              Try Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h5 name="api-send-text-message" id="api-send-text-message">Send Text
+        Message</h5>
+      <div class="pre">
+        Sends a text message<br />
+        <b>Data:</b>
+        String<br />
+        <b>Type:</b>Async
+        <br /><br />
+        <div class="hilight">
+          {{! prettier-ignore }}
+          <pre><code class="javascript">// Send a text message 
+
+// Async/await based
+try{ 
+    const response = await api.sendTextMessage('TEXT');
+    console.log(response);
+}catch(ex){ 
+    console.warn(ex); 
+} 
+
+// Promise based
+api.sendTextMessage('TEXT')
+    .then(console.log)
+    .catch(console.warn); 
+// @TODO: example for event based callback
+            </code></pre>
+          <div class="text-right">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              onclick={{action "sendTextMessage"}}
+            >
+              Try Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h5 id="api-send-postback" name="api-send-postback">Send Post Back</h5>
+      <div class="pre">
+        Simulates a button click<br />
+        <b>Data:</b>
+        Clicked button data (JSON)<br />
+        <b>Type:</b>Async
+        <br /><br />
+        <div class="hilight">
+          {{! prettier-ignore }}
+          <pre><code class="javascript">// Simulate a button click 
+const btnObj= { 
+    argType: 'ARG_TYPE', 
+    name: 'NAME', 
+    title: 'TITLE', 
+    type:'postBack', 
+    value: null 
+} 
+
+// Async/await based
+
+try{ 
+    const response = await api.sendPostBack(btnObj); 
+    console.log(response);
+}catch(ex){ 
+    console.warn(ex); 
+} 
+// Promise based 
+api.sendPostBack(btnObj)
+    .then(console.log)
+    .catch(console.warn) 
+
+// @TODO: example for event based callback
+            </code></pre>
+          <div class="text-right">
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              onclick={{action "sendPostBack"}}
+            >
+              Try Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h5 name="api-send-voice-message" id="api-send-voice-message">Send Voice
+        Message</h5>
+      <div class="pre">
+        Sends audio message if the project has that feature set-<br />
+        <b>Data:</b>
+        Audio File Type: Async<br /><br />
+        {{! prettier-ignore }}
+        <pre><code class="javascript">// Send a Voice message 
+
+// Async/await based
+try{ 
+    const response = await api.sendVoice(btnObj); 
+    console.log(response);
+}catch(ex){
+    console.warn(ex); 
+} 
+// Promise based 
+
+api.voice(AUDIO_FILE)
+    .then(console.log)
+    .catch(console.warn) 
+// @TODO: example for event based callback
+          </code></pre>
+        <div class="text-right">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick={{action "sendVoice"}}
+          >
+            Try Me
+          </button>
+        </div>
+      </div>
+
+      <h5 name="api-start-conversation" id="api-start-conversation">Start
+        Conversation</h5>
+      <div class="pre">
+        Starts a new conversation.<br />
+        <b>Type:</b>Async<br /><br />
+        {{! prettier-ignore }}
+        <pre><code class="javascript">// Start Conversation 
+
+// Async/await based
+try{
+    const response = await api.startConversation(); 
+    console.log(response);
+}catch(ex){
+    console.warn(ex); 
+} 
+
+// Promise based 
+api.startConversation()
+    .then(console.log)
+    .catch(console.warn)
+
+// @TODO: example for event based callback
+          </code></pre>
+        <div class="text-right">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick={{action "startConversation"}}
+          >
+            Try Me
+          </button>
+        </div>
+      </div>
+
+      <h5 name="api-reset-conversation" id="api-reset-conversation">Reset
+        Conversation</h5>
+      <div class="pre">
+        Resets the conversation<br />
+        <b>Type:</b>Async<br /><br />
+        {{! prettier-ignore }}
+        <pre><code class="javascript">// Reset Conversation 
+
+// Async/await based
+try{
+    const response = await api.resetConversation(); 
+    console.log(response);
+}catch(ex){
+    console.warn(ex); 
+} 
+
+// Promise based 
+api.resetConversation()
+    .then(console.log)
+    .catch(console.warn)
+
+// @TODO: example for event based callback
+          </code></pre>
+        <div class="text-right">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick={{action "resetConversation"}}
+          >
+            Try Me
+          </button>
+        </div>
+      </div>
+
+      <div class="breathe"></div>
+      <h1>Iframe</h1>
+      <p>
+        {{! Iframe Stuff }}
+        The iframe chatbot client has our built in template<br />
+        It's recomended to use the iframe client since it's easier to implement
+        and use at this stage of the project<br />
+        To use it, you just need to instanciate it, the methods described here
+        are mainly to extract information about the chatbot iframe.<br />
+        Please open your console to check the output<br />
+      </p>
+
+      <h5 name="iframe-list-default-styles" id="iframe-list-default-styles">List
+        Iframe Styles</h5>
+      <div class="pre">
+        Gets all iframe css styles that can be handlend.<br />
+        <b>Type:</b>Sync<br />
+        <span class="text-danger">Status: On Tests</span>
+        <br /><br />
+        {{! prettier-ignore }}
+        <pre><code class="javascript">//List Styles 
+iframe.listDefaultStyles()
+
+          </code></pre>
+        <div class="text-right">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick={{action "listDefaultStyles"}}
+          >
+            Try Me
+          </button>
+        </div>
+      </div>
+
+      <h5 name="iframe-get-element" id="iframe-get-element">Get Iframe Element</h5>
+      <div class="pre">
+        Gets the iframe element.<br />
+        <b>Type:</b>Sync<br />
+        <span class="text-danger">Status: On Tests</span>
+        <br /><br />
+        {{! prettier-ignore }}
+        <pre><code class="javascript">// Get Element 
+iframe.getIframeElement()
+          </code></pre>
+        <div class="text-right">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick={{action "getIframeElement"}}
+          >
+            Try Me
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-4" id="body-chatbot"></div>
+  </div>
+
+</div>

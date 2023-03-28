@@ -110,6 +110,6 @@ export class ExperienceJourney extends BluedarwinExperienceCard {
     }
     ExperienceJourney.instance = this;
     this.experience = experience;
-    this.create('journey',{reflections:true});
+    this.create('journey', { reflections: true });
   }
 }

@@ -1,4 +1,4 @@
-import { BluedarwinExperienceCard } from "../../experience/objects/card";
+import { BluedarwinExperienceCard } from '../../experience/objects/card';
 
 export class ExperienceProductAutomations extends BluedarwinExperienceCard {
   static instance;
@@ -9,6 +9,6 @@ export class ExperienceProductAutomations extends BluedarwinExperienceCard {
     }
     ExperienceProductAutomations.instance = this;
     this.experience = experience;
-    this.create("products.automations");
+    this.create('products.automations');
   }
 }

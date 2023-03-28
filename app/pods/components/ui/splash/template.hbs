@@ -1,4 +1,4 @@
-{{#if (not this.isDestroyed)}}
+{{#unless this.isDestroyed}}
   <div id="bde__ui-splash" class="bde__ui-splash {{this.className}}">
     <section>
       <div class="bde__ui-splash__text">
@@ -23,4 +23,4 @@
       <Ui::Container::Text @text={{this.text}} @reversed={{this.loaded}} />
     </div>
   </div>
-{{/if}}
+{{/unless}}

@@ -1,5 +1,6 @@
 @import "./fonts.scss";
 @import "./animations.scss";
+@import "./packages/hljs.scss";
 @import "cursor.scss";
 @import "app/index.scss";
 
@@ -26,8 +27,7 @@ body {
   cursor: pointer;
 }
 
-.dg , .ac{
-  
+.dg,
+.ac {
   z-index: 100000000000 !important;
-
 }
