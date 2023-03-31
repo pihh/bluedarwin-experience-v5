@@ -12,22 +12,31 @@
       "
   >
     <div class="bde__team-section__container">
+
       <iframe
         style="width: 100%; height: 100%; position: absolute; z-index: 1; border: 0;"
-        class="fluids_back"
+        class="fluids_back
+          {{if
+            (or (eq this.sectionActive 0) (eq this.nextSection 0))
+            ''
+            'top--100'
+          }}"
         src="https://hesitant-sheep.surge.sh"
       ></iframe>
+
       {{! <div class="bde__team-section__background-image"></div> }}
-      <div class="bde__team-section__background-overlay"></div>
+      {{! <div class="bde__team-section__background-overlay"></div> }}
       <div class="bde__team-section__content">
         <div class="bde__team-section__content__wrapper">
           <div class="bde__team-section__content__left">
 
             <p
-              class="bde-page-subtitle bde__ui__animation__blur bde__ui__page-content fade-in-down"
+              class="bde-page-subtitle"
+              data-cursor-img="/images/team.carlos-galveias.png"
             >Team Leader </p>
             <h1
-              class="bde-page-title bde__ui__animation__blur bde__ui__page-content fade-in-down"
+              class="bde-page-title"
+              data-cursor-img="/images/team.carlos-galveias.png"
             >
               Carlos
               <br /><span class="text-stroke">Galveias</span>
@@ -35,7 +44,10 @@
             <small class="lorem-ipsum"></small>
           </div>
           <div class="bde__team-section__content__right">
-            <p class="lorem-ipsum bde__team-text-animate"></p>
+            <p
+              class="lorem-ipsum bde__team-text-animate"
+              data-cursor-img="/images/team.carlos-galveias.png"
+            ></p>
             <p class="lorem-ipsum bde__team-text-animate"></p>
             <p class="lorem-ipsum bde__team-text-animate"></p>
             <p class="lorem-ipsum bde__team-text-animate"></p>
@@ -52,20 +64,29 @@
       {{if (eq this.sectionActive 1) 'active' ''}}"
   >
     <div class="bde__team-section__container">
+
       <iframe
         style="width: 100%; height: 100%; position: absolute; z-index: 1; border: 0;"
-        class="fluids_back"
+        class="fluids_back
+          {{if
+            (or (eq this.sectionActive 1) (eq this.nextSection 1))
+            ''
+            'top--100'
+          }}"
         src="https://cognus-dialog.surge.sh"
       ></iframe>
+
       <div class="bde__team-section__content">
         <div class="bde__team-section__content__wrapper">
           <div>
 
             <p
-              class="bde-page-subtitle bde__ui__animation__blur bde__ui__page-content fade-in-down"
+              class="bde-page-subtitle"
+              data-cursor-img="/images/team.carlos-galveias.png"
             >Team Leader </p>
             <h1
-              class="bde-page-title bde__ui__animation__blur bde__ui__page-content fade-in-down"
+              class="bde-page-title"
+              data-cursor-img="/images/team.carlos-galveias.png"
             >
               Carlos
               <span class="text-stroke">Galveias</span>
@@ -83,21 +104,35 @@
       {{if (eq this.sectionActive 2) 'active' ''}}"
   >
     <div class="bde__team-section__container">
+
       <iframe
+        style="width: 100%; height: 100%; position: absolute; z-index: 1; border: 0;"
+        class="fluids_back
+          {{if
+            (or (eq this.sectionActive 2) (eq this.nextSection 2))
+            ''
+            'top--100'
+          }}"
+        src="https://endurable-holiday.surge.sh"
+      ></iframe>
+
+      {{! <iframe
         style="width: 100%; height: 100%; position: absolute; z-index: 1; border: 0;"
         class="fluids_back"
         src="https://endurable-holiday.surge.sh"
-      ></iframe>
-      <div class="bde__team-section__background-overlay"></div>
+      ></iframe> }}
+      {{! <div class="bde__team-section__background-overlay"></div> }}
       <div class="bde__team-section__content">
         <div class="bde__team-section__content__wrapper">
           <div class="bde__team-section__content__left">
 
             <p
-              class="bde-page-subtitle bde__ui__animation__blur bde__ui__page-content fade-in-down"
+              class="bde-page-subtitle"
+              data-cursor-img="/images/team.carlos-galveias.png"
             >Team Leader </p>
             <h1
-              class="bde-page-title bde__ui__animation__blur bde__ui__page-content fade-in-down"
+              class="bde-page-title"
+              data-cursor-img="/images/team.carlos-galveias.png"
             >
               Carlos
               <br /><span class="text-stroke">Galveias</span>

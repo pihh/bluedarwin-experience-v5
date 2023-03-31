@@ -4,13 +4,46 @@
     {{if this.transition.transition 'transitioning' ''}}"
 >
 
-  
+  {{! 
+    Navigation Menu and Dev GUI 
+    ----------------------------------
+    * Fixed
+    * Top
+    * Content on right side  
+  }}
+  <nav>
 
-  {{! Background }}
+    <Ui::Container::Navigation />
+    <Ui::Gui />
+  </nav>
+
+  {{! 
+      Background 
+      ----------------------------------
+      * Fixed
+      * Fills all container space 
+      * Lower z-index ( no need for mouse events for now )
+  }}
   <Ui::Background />
 
-  {{! Left and right side text }}
+  {{! 
+      Left/Right side vertical text container  
+      ----------------------------------
+      * Fixed 
+      * Fills all height   
+  }}
   <Ui::Container::Aside />
+
+  {{! 
+      START Website main content
+      ----------------------------------
+      * Canvas with experience
+      * Page content
+      * Fills all container space
+      * Has 2 panels:
+        * Left panel: Text 
+        * Right panel: Visuals
+  }}
 
   {{! Experience canvas }}
   <canvas {{did-insert this.didInsertCanvas}} id="experience-canvas"></canvas>
@@ -19,21 +52,28 @@
 
   {{! Page info container }}
   <Ui::Container::Page />
+  {{! 
+      END Website main content
+      ----------------------------------
+  }}
 
-  {{! Navigation Menu and Dev GUI }}
-  <aside>
-    <Ui::Container::Navigation />
-    <Ui::Gui />
-  </aside>
-
-  {{! Footer Container }}
-  <footer>
+  {{! 
+      Footer Container 
+      ----------------------------------
+      * Fixed
+      * Bottom     
+  }}
+  <footer id="bde-experience__footer">
     <div>
       <Ui::Container::Scrollbar />
     </div>
     <div>
       <Ui::Container::Products />
       <Ui::Container::Team />
+    </div>
+    <div id="bde-experience__footer__copyright">
+      <img src="/images/logo.png" id="bde-experience__footer__logo" />
+      2023 @ Bluedarwin Team
     </div>
   </footer>
 </main>

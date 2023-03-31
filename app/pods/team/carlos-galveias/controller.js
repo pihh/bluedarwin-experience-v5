@@ -6,6 +6,7 @@ export default class TeamCarlosGalveiasController extends Controller {
   @tracked sections = [0, 1, 2];
   @tracked isScrolling = false;
   @tracked sectionActive = 0;
+  @tracked nextSection = 0;
 
   @action onSectionChange(index) {
     this.section = index;
@@ -24,13 +25,16 @@ export default class TeamCarlosGalveiasController extends Controller {
       this.isScrolling = true;
       if (event.deltaY < 0) {
         this.section++;
+        this.nextSection = this.section;
       } else if (event.deltaY > 0) {
         this.section--;
         if (this.section < 0) {
           this.section = 0;
         }
+        this.nextSection = this.section;
       }
       setTimeout(() => {
+        this.nextSection = this.section;
         this.sectionActive = this.section;
         this.isScrolling = false;
       }, 1000);

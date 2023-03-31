@@ -1,7 +1,7 @@
 .bde__ui-scrollbar__wrapper {
-  position: fixed;
-  bottom: 10em;
-  z-index: -1;
+  // position: fixed;
+  // bottom: 10em;
+  // z-index: -1;
   width: 100vw;
   transition: all 400ms ease-in-out;
 }
@@ -22,7 +22,8 @@
 
 .bde__ui-scrollbar__container {
   position: relative;
-  height: 8em;
+  height: 7em;
+  margin-bottom: 2em;
 }
 
 .bde__ui-scrollbar__call-to-action {
@@ -32,6 +33,7 @@
   bottom: 0;
   width: 100%;
   text-align: center;
+  font-size: small;
 }
 .bde__ui-scrollbar__scroll-downs {
   position: absolute;

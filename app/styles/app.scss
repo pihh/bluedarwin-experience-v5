@@ -31,3 +31,35 @@ body {
 .ac {
   z-index: 100000000000 !important;
 }
+
+#bde-experience__footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  z-index: 1;
+}
+#bde-experience__footer__copyright {
+  padding: 2em;
+  font-size: small;
+  font-weight: 100;
+
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+#bde-experience__nav__logo {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  height: 4em;
+  width: 4em;
+  z-index: 10;
+}
+#bde-experience__footer__logo {
+  height: 2em;
+}
+.top--100 {
+  top: -100vh;
+}
